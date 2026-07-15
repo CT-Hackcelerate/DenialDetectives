@@ -1,0 +1,41 @@
+column1_cpt,column2_cpt,modifier_indicator,rationale
+29881,99213,1,E/M on the same day as knee arthroscopy bundles unless a separately identifiable service is documented; append modifier 25 to the E/M
+29881,99214,1,E/M on the same day as knee arthroscopy bundles unless a separately identifiable service is documented; append modifier 25 to the E/M
+29881,29877,1,Chondroplasty in the same compartment is included in meniscectomy; modifier 59/XS allowed only for a documented separate compartment
+29881,29874,1,Loose body removal through the same portal is included; separate incision may support modifier 59
+29880,29881,0,Medial AND lateral meniscectomy (29880) includes single-compartment meniscectomy (29881); never billable together
+29881,29870,0,Diagnostic knee arthroscopy is always included in surgical knee arthroscopy
+27447,99214,1,E/M same day as total knee arthroplasty requires modifier 25 with a distinct documented evaluation
+27447,20610,0,Joint injection of the operative knee is included in arthroplasty
+20610,99213,1,E/M same day as major-joint injection requires modifier 25 for a separately identifiable visit
+20610,76942,1,Ultrasound guidance separately payable only when a complete guided procedure is documented
+20610,20611,0,20611 is the with-guidance code; never bill both for the same joint
+29827,29826,1,Subacromial decompression with rotator cuff repair requires documentation of distinct work; modifier 59 per payer policy
+29827,29822,0,Limited debridement is included in arthroscopic rotator cuff repair
+29827,29823,1,Extensive debridement may be separately payable in a different area of the same shoulder
+23430,29827,1,Open biceps tenodesis with arthroscopic cuff repair payable with modifier 59 when documented as distinct
+64483,77003,0,Fluoroscopic guidance is included in transforaminal epidural injection
+64483,64484,1,Additional-level add-on payable; do not report twice for the same level
+62323,77003,0,Fluoroscopic guidance is included in interlaminar epidural injection
+64493,64494,1,Facet joint add-on levels payable with correct level documentation
+80053,80048,0,Basic metabolic panel is a component of the comprehensive metabolic panel
+80053,82947,0,Glucose is a component of the comprehensive metabolic panel
+80053,84520,0,BUN is a component of the comprehensive metabolic panel
+80053,82310,0,Calcium is a component of the comprehensive metabolic panel
+80053,36415,0,Routine venipuncture bundles into panel collection per payer bundling policy
+85025,85027,0,CBC with differential includes CBC without differential
+80061,82465,0,Total cholesterol is a component of the lipid panel
+80061,84478,0,Triglycerides are a component of the lipid panel
+93000,93005,0,Complete ECG includes the tracing component
+93000,93010,0,Complete ECG includes the interpretation component
+93306,93320,0,Doppler is included in complete echocardiography with spectral and color flow
+97110,97140,1,Therapeutic exercise and manual therapy in the same session payable with modifier 59 for separate 15-minute intervals
+97530,97110,1,Dynamic activities and therapeutic exercise payable together with modifier 59 and distinct time blocks
+97110,97010,0,Hot/cold pack application is always bundled into therapy services
+99213,36415,1,Venipuncture with E/M separately payable when a specimen is drawn; some payers bundle
+45380,45378,0,Diagnostic colonoscopy is included in colonoscopy with biopsy
+45385,45380,1,Snare polypectomy and biopsy payable together only for different lesions; modifier 59 with documentation
+43239,43235,0,Diagnostic EGD is included in EGD with biopsy
+69210,99213,1,E/M same day as cerumen removal requires modifier 25 with a distinct documented complaint
+11042,97597,1,Debridement codes payable together only for different anatomic sites with modifier 59/XS
+12001,11042,1,Simple repair with debridement payable when performed at a separate site; modifier 59

@@ -1,0 +1,35 @@
+code,description,category,typical_root_cause,typical_fix
+1,Deductible amount.,patient_responsibility,Member has not met the annual deductible,Transfer balance to patient responsibility; no resubmission
+2,Coinsurance amount.,patient_responsibility,Member cost-share applied per plan,Transfer balance to patient responsibility; no resubmission
+3,Co-payment amount.,patient_responsibility,Member copay applied per plan,Transfer balance to patient responsibility; no resubmission
+4,"The procedure code is inconsistent with the modifier used, or a required modifier is missing.",coding_mismatch,Required modifier (laterality/therapy discipline/anatomic) omitted at charge entry,Append the correct modifier and resubmit as a corrected claim
+5,The procedure code/type of bill is inconsistent with the place of service.,coding_mismatch,Wrong POS code for where the service was rendered,Correct the place of service and resubmit
+6,The procedure/revenue code is inconsistent with the patient's age.,coding_mismatch,Age-specific code billed for a patient outside its range,Recode to the age-appropriate CPT and resubmit
+11,The diagnosis is inconsistent with the procedure.,coding_mismatch,Line points at a diagnosis that does not support the procedure,Repoint the line to the supporting ICD-10 already documented
+16,Claim/service lacks information or has submission/billing error(s).,missing_info,"Missing or invalid data element (member ID, dx pointer, NDC, attachment)",Read the RARC to find the missing element; supply it and resubmit. Beware: payers sometimes use 16 for edits that are really bundling or modifier problems
+18,Exact duplicate claim/service.,duplicate,Claim was already received or paid,Verify original payment; close the duplicate rather than resubmitting
+22,This care may be covered by another payer per coordination of benefits.,coordination_of_benefits,Another payer is primary for this member,Determine primacy; bill the primary first and resubmit with its EOB
+23,The impact of prior payer(s) adjudication including payments and/or adjustments.,coordination_of_benefits,Secondary claim adjusted by primary payment,Verify COB math; usually no action required
+26,Expenses incurred prior to coverage.,non_covered,Service predates the member's effective date,Verify eligibility dates; bill patient if confirmed
+27,Expenses incurred after coverage terminated.,non_covered,Coverage termed before the date of service,Verify term date with eligibility; bill patient or find active coverage
+29,The time limit for filing has expired.,timely_filing,Claim submitted past the payer's filing deadline,Appeal only with proof of timely submission; otherwise write off
+31,Patient cannot be identified as our insured.,missing_info,Subscriber ID or demographics do not match payer enrollment,Correct member ID/demographics from the eligibility response and resubmit
+39,Services denied at the time authorization/pre-certification was requested.,auth_required,Authorization was requested and refused,Appeal with clinical documentation; do not resubmit unchanged
+45,Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement.,contractual,Billed amount above the contracted allowable,Write off the contractual difference; no resubmission
+50,These are non-covered services because this is not deemed a medical necessity by the payer.,medical_necessity,Payer's clinical policy/LCD criteria not met on the claim as coded,Appeal with clinical documentation mapped to the policy criteria
+96,Non-covered charge(s).,non_covered,Service excluded under the member's benefit plan,Check plan documents; bill patient with ABN or write off
+97,The benefit for this service is included in the payment/allowance for another service/procedure that has already been adjudicated.,bundling_ncci,Service bundled into a same-day comprehensive procedure (NCCI PTP edit),Check the NCCI table; if a modifier is allowed and documentation supports distinct service append it (25 on E/M; 59/X{EPSU} on procedures)
+109,Claim/service not covered by this payer/contractor. You must send the claim/service to the correct payer/contractor.,coordination_of_benefits,Wrong payer billed for this member or plan type,Identify the correct payer and redirect the claim
+110,Billing date predates service date.,missing_info,Data entry error in dates,Correct the dates and resubmit
+119,"Benefit maximum for this time period or occurrence has been reached.",non_covered,Visit or dollar maximum exhausted,Verify accumulator; bill patient for services beyond the max
+151,"Payment adjusted because the payer deems the information submitted does not support this many/frequency of services.",medical_necessity,Units or frequency exceed policy limits,Appeal with documentation supporting frequency or correct the units
+167,This (these) diagnosis(es) is (are) not covered.,non_covered,Diagnosis excluded from coverage under the plan,Confirm coding is correct; if so bill patient or write off
+181,Procedure code was invalid on the date of service.,coding_mismatch,Deleted or not-yet-effective CPT billed,Recode to the CPT valid on the DOS and resubmit
+182,Procedure modifier was invalid on the date of service.,coding_mismatch,Modifier deleted or inapplicable on the DOS,Replace with the valid modifier and resubmit
+197,Precertification/authorization/notification absent.,auth_required,Required prior authorization missing from the claim,If auth exists key it onto the claim and resubmit; else pursue retro-auth per payer policy
+198,Precertification/authorization exceeded.,auth_required,Services exceed the number/scope authorized,Request an updated auth or appeal with documentation
+204,"This service/equipment/drug is not covered under the patient's current benefit plan.",non_covered,Benefit excluded under the current plan,Verify benefits; bill patient or write off
+226,"Information requested from the billing/rendering provider was not provided or was insufficient/incomplete.",missing_info,Records request not answered timely,Submit the requested documentation and resubmit
+236,"This procedure or procedure/modifier combination is not compatible with another procedure or procedure/modifier combination provided on the same day according to the National Correct Coding Initiative or workers compensation state regulations/fee schedule requirements.",bundling_ncci,NCCI procedure-to-procedure edit hit,Check the NCCI modifier indicator; append 59/X modifier only with documented distinct service; otherwise write off the component
+A1,Claim/Service denied.,unknown,Generic denial with no specific reason given,Call the payer or check the portal to identify the true reason before acting
+B7,"This provider was not certified/eligible to be paid for this procedure/service on this date of service.",contractual,Provider credentialing/enrollment gap on the DOS,Route to credentialing; appeal once enrollment is corrected

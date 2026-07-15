@@ -1,0 +1,102 @@
+[
+  {
+    "ts": "2026-07-15T08:30:59+00:00",
+    "denial_id": "DEN-007",
+    "payer": "UnitedHealthcare",
+    "carc": "16",
+    "route": "auto_fix_resubmit",
+    "root_cause_category": "bundling_ncci",
+    "confidence": 0.95,
+    "resubmit_status": "accepted"
+  },
+  {
+    "ts": "2026-07-15T08:31:10+00:00",
+    "denial_id": "DEN-001",
+    "payer": "Aetna",
+    "carc": "197",
+    "route": "human_review",
+    "root_cause_category": "auth_required",
+    "confidence": 0.97,
+    "resubmit_status": null
+  },
+  {
+    "ts": "2026-07-15T08:31:16+00:00",
+    "denial_id": "DEN-001",
+    "payer": "Aetna",
+    "carc": "197",
+    "route": "human_review",
+    "root_cause_category": "auth_required",
+    "confidence": 0.97,
+    "resubmit_status": "accepted"
+  },
+  {
+    "ts": "2026-07-15T08:31:25+00:00",
+    "denial_id": "DEN-017",
+    "payer": "Aetna",
+    "carc": "50",
+    "route": "appeal",
+    "root_cause_category": "medical_necessity",
+    "confidence": 0.95,
+    "resubmit_status": null
+  },
+  {
+    "ts": "2026-07-15T08:31:35+00:00",
+    "denial_id": "DEN-028",
+    "payer": "Cigna",
+    "carc": "29",
+    "route": "write_off",
+    "root_cause_category": "timely_filing",
+    "confidence": 0.97,
+    "resubmit_status": null
+  },
+  {
+    "ts": "2026-07-15T08:47:50+00:00",
+    "denial_id": "DEN-001",
+    "payer": "Aetna",
+    "carc": "197",
+    "route": "human_review",
+    "root_cause_category": "auth_required",
+    "confidence": 0.97,
+    "resubmit_status": null
+  },
+  {
+    "ts": "2026-07-15T08:48:07+00:00",
+    "denial_id": "DEN-007",
+    "payer": "UnitedHealthcare",
+    "carc": "16",
+    "route": "auto_fix_resubmit",
+    "root_cause_category": "bundling_ncci",
+    "confidence": 0.95,
+    "resubmit_status": "accepted"
+  },
+  {
+    "ts": "2026-07-15T10:37:23+00:00",
+    "denial_id": "DEN-103",
+    "payer": "Cigna",
+    "carc": "4",
+    "route": "auto_fix_resubmit",
+    "root_cause_category": "coding_mismatch",
+    "confidence": 0.95,
+    "resubmit_status": "accepted"
+  },
+  {
+    "ts": "2026-07-15T10:55:36+00:00",
+    "denial_id": "DEN-002",
+    "payer": "Blue Cross Blue Shield",
+    "carc": "197",
+    "route": "human_review",
+    "root_cause_category": "auth_required",
+    "confidence": 0.91,
+    "resubmit_status": null
+  },
+  {
+    "ts": "2026-07-15T11:03:37+00:00",
+    "denial_id": "DEN-017",
+    "payer": "Aetna",
+    "carc": "50",
+    "route": "appeal",
+    "root_cause_category": "medical_necessity",
+    "confidence": 0.93,
+    "resubmit_status": null
+  }
+]

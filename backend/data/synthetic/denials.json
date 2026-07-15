@@ -1,0 +1,838 @@
+[
+  {
+    "denial_id": "DEN-001",
+    "claim_id": "CLM-001",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "remit_date": "2026-05-11",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "197",
+        "rarc": "M62",
+        "amount": "9800.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "9800.00",
+    "remit_note": "Precertification/authorization/notification absent.",
+    "payer_context": "Front desk confirmed auth #A-2026-5506 was obtained by phone for the arthroscopic knee meniscectomy but was never keyed into the claim."
+  },
+  {
+    "denial_id": "DEN-002",
+    "claim_id": "CLM-002",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "remit_date": "2026-03-10",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "197",
+        "rarc": "M62",
+        "amount": "3400.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "3400.00",
+    "remit_note": "Precertification/authorization/notification absent.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-003",
+    "claim_id": "CLM-003",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "remit_date": "2026-03-11",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "197",
+        "rarc": "M62",
+        "amount": "2600.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "2600.00",
+    "remit_note": "Precertification/authorization/notification absent.",
+    "payer_context": "Front desk confirmed auth #A-2026-9279 was obtained by phone for the MRI knee without contrast but was never keyed into the claim."
+  },
+  {
+    "denial_id": "DEN-004",
+    "claim_id": "CLM-004",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "remit_date": "2026-06-12",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "197",
+        "rarc": "M62",
+        "amount": "980.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "980.00",
+    "remit_note": "Precertification/authorization/notification absent.",
+    "payer_context": "Front desk confirmed auth #A-2026-4611 was obtained by phone for the attended polysomnography but was never keyed into the claim."
+  },
+  {
+    "denial_id": "DEN-005",
+    "claim_id": "CLM-005",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "remit_date": "2026-03-05",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "197",
+        "rarc": "M62",
+        "amount": "9800.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "9800.00",
+    "remit_note": "Precertification/authorization/notification absent.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-006",
+    "claim_id": "CLM-006",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "remit_date": "2026-03-22",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "16",
+        "rarc": "N382",
+        "amount": "203.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "203.00",
+    "remit_note": "Claim/service lacks information: missing/incomplete/invalid patient identifier.",
+    "payer_context": "Eligibility check shows the member's active ID is SUB507943839; claim went out with a placeholder."
+  },
+  {
+    "denial_id": "DEN-007",
+    "claim_id": "CLM-007",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "remit_date": "2026-04-04",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "16",
+        "rarc": "N54",
+        "amount": "225.00",
+        "line_number": 1
+      }
+    ],
+    "total_denied": "225.00",
+    "remit_note": "Claim/service lacks information or has submission/billing error(s) which is needed for adjudication.",
+    "payer_context": "EOB shows the arthroscopy (29881) paid in full — only the office visit denied. Payer rep could not say what information is missing. Chart documents a separate left-shoulder evaluation (M25.511) completed before the knee procedure."
+  },
+  {
+    "denial_id": "DEN-008",
+    "claim_id": "CLM-008",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "remit_date": "2026-04-20",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "16",
+        "rarc": "M76",
+        "amount": "260.00",
+        "line_number": 1
+      }
+    ],
+    "total_denied": "260.00",
+    "remit_note": "Claim/service lacks information: missing/incomplete/invalid diagnosis.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-009",
+    "claim_id": "CLM-009",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "remit_date": "2026-03-13",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "16",
+        "rarc": "N382",
+        "amount": "203.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "203.00",
+    "remit_note": "Claim/service lacks information: missing/incomplete/invalid patient identifier.",
+    "payer_context": "Eligibility check shows the member's active ID is SUB764130526; claim went out with a placeholder."
+  },
+  {
+    "denial_id": "DEN-010",
+    "claim_id": "CLM-010",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "remit_date": "2026-04-20",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "16",
+        "rarc": "M76",
+        "amount": "260.00",
+        "line_number": 1
+      }
+    ],
+    "total_denied": "260.00",
+    "remit_note": "Claim/service lacks information: missing/incomplete/invalid diagnosis.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-011",
+    "claim_id": "CLM-011",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "remit_date": "2026-03-25",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "4",
+        "rarc": "N822",
+        "amount": "640.00",
+        "line_number": 1
+      }
+    ],
+    "total_denied": "640.00",
+    "remit_note": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+    "payer_context": "Documentation supports the service; the therapy discipline modifier GP was omitted at charge entry."
+  },
+  {
+    "denial_id": "DEN-012",
+    "claim_id": "CLM-012",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "remit_date": "2026-04-25",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "4",
+        "rarc": "N822",
+        "amount": "310.00",
+        "line_number": 1
+      }
+    ],
+    "total_denied": "310.00",
+    "remit_note": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+    "payer_context": "Documentation supports the service; the laterality modifier LT was omitted at charge entry."
+  },
+  {
+    "denial_id": "DEN-013",
+    "claim_id": "CLM-013",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "remit_date": "2026-04-15",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "4",
+        "rarc": "N822",
+        "amount": "2600.00",
+        "line_number": 1
+      }
+    ],
+    "total_denied": "2600.00",
+    "remit_note": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+    "payer_context": "Documentation supports the service; the laterality modifier LT was omitted at charge entry."
+  },
+  {
+    "denial_id": "DEN-014",
+    "claim_id": "CLM-014",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "remit_date": "2026-03-26",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "11",
+        "rarc": null,
+        "amount": "145.00",
+        "line_number": 1
+      }
+    ],
+    "total_denied": "145.00",
+    "remit_note": "The diagnosis is inconsistent with the procedure.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-015",
+    "claim_id": "CLM-015",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "remit_date": "2026-05-25",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "11",
+        "rarc": null,
+        "amount": "890.00",
+        "line_number": 1
+      }
+    ],
+    "total_denied": "890.00",
+    "remit_note": "The diagnosis is inconsistent with the procedure.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-016",
+    "claim_id": "CLM-016",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "remit_date": "2026-03-11",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "11",
+        "rarc": null,
+        "amount": "145.00",
+        "line_number": 1
+      }
+    ],
+    "total_denied": "145.00",
+    "remit_note": "The diagnosis is inconsistent with the procedure.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-017",
+    "claim_id": "CLM-017",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "remit_date": "2026-05-31",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "50",
+        "rarc": "N115",
+        "amount": "2040.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "2040.00",
+    "remit_note": "These are non-covered services because this is not deemed a medical necessity by the payer.",
+    "payer_context": "Visit count exceeds the payer's therapy threshold; progress notes on file."
+  },
+  {
+    "denial_id": "DEN-018",
+    "claim_id": "CLM-018",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "remit_date": "2026-05-03",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "50",
+        "rarc": "N115",
+        "amount": "160.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "160.00",
+    "remit_note": "These are non-covered services because this is not deemed a medical necessity by the payer.",
+    "payer_context": "Screening labs billed with a routine-exam diagnosis only."
+  },
+  {
+    "denial_id": "DEN-019",
+    "claim_id": "CLM-019",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "remit_date": "2026-04-06",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "50",
+        "rarc": "N115",
+        "amount": "6800.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "6800.00",
+    "remit_note": "These are non-covered services because this is not deemed a medical necessity by the payer.",
+    "payer_context": "TMS series billed before documented failure of two antidepressant trials."
+  },
+  {
+    "denial_id": "DEN-020",
+    "claim_id": "CLM-020",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "remit_date": "2026-03-30",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "50",
+        "rarc": "N115",
+        "amount": "2040.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "2040.00",
+    "remit_note": "These are non-covered services because this is not deemed a medical necessity by the payer.",
+    "payer_context": "Visit count exceeds the payer's therapy threshold; progress notes on file."
+  },
+  {
+    "denial_id": "DEN-021",
+    "claim_id": "CLM-021",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "remit_date": "2026-03-01",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "97",
+        "rarc": "M80",
+        "amount": "185.00",
+        "line_number": 1
+      }
+    ],
+    "total_denied": "185.00",
+    "remit_note": "Payment is included in the allowance for another service/procedure.",
+    "payer_context": "Separate E/M documented for new symptom evaluation before the injection."
+  },
+  {
+    "denial_id": "DEN-022",
+    "claim_id": "CLM-022",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "remit_date": "2026-05-24",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "236",
+        "rarc": "N20",
+        "amount": "1900.00",
+        "line_number": 2
+      }
+    ],
+    "total_denied": "1900.00",
+    "remit_note": "This procedure is not paid separately when performed with another procedure on the same day.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-023",
+    "claim_id": "CLM-023",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "remit_date": "2026-05-28",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "97",
+        "rarc": "N20",
+        "amount": "18.00",
+        "line_number": 2
+      }
+    ],
+    "total_denied": "18.00",
+    "remit_note": "Payment is included in the allowance for another service/procedure.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-024",
+    "claim_id": "CLM-024",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "remit_date": "2026-05-25",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "97",
+        "rarc": "M80",
+        "amount": "185.00",
+        "line_number": 1
+      }
+    ],
+    "total_denied": "185.00",
+    "remit_note": "Payment is included in the allowance for another service/procedure.",
+    "payer_context": "Separate E/M documented for new symptom evaluation before the injection."
+  },
+  {
+    "denial_id": "DEN-025",
+    "claim_id": "CLM-025",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "remit_date": "2026-03-21",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "18",
+        "rarc": "N522",
+        "amount": "85.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "85.00",
+    "remit_note": "Exact duplicate claim/service.",
+    "payer_context": "Original claim paid on remit dated 2026-02-28."
+  },
+  {
+    "denial_id": "DEN-026",
+    "claim_id": "CLM-026",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "remit_date": "2026-06-10",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "18",
+        "rarc": "N522",
+        "amount": "85.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "85.00",
+    "remit_note": "Exact duplicate claim/service.",
+    "payer_context": "Original claim paid on remit dated 2026-05-20."
+  },
+  {
+    "denial_id": "DEN-027",
+    "claim_id": "CLM-027",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "remit_date": "2026-05-29",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "18",
+        "rarc": "N522",
+        "amount": "85.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "85.00",
+    "remit_note": "Exact duplicate claim/service.",
+    "payer_context": "Original claim paid on remit dated 2026-05-08."
+  },
+  {
+    "denial_id": "DEN-028",
+    "claim_id": "CLM-028",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "remit_date": "2026-05-05",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "29",
+        "rarc": null,
+        "amount": "1850.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "1850.00",
+    "remit_note": "The time limit for filing has expired.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-029",
+    "claim_id": "CLM-029",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "remit_date": "2026-04-10",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "29",
+        "rarc": null,
+        "amount": "1850.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "1850.00",
+    "remit_note": "The time limit for filing has expired.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-030",
+    "claim_id": "CLM-030",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "remit_date": "2026-03-26",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "29",
+        "rarc": null,
+        "amount": "1850.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "1850.00",
+    "remit_note": "The time limit for filing has expired.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-031",
+    "claim_id": "CLM-031",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "remit_date": "2026-03-10",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "27",
+        "rarc": null,
+        "amount": "2400.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "2400.00",
+    "remit_note": "Expenses incurred after coverage terminated.",
+    "payer_context": "Eligibility file shows coverage termed 2026-01-27 following employment change."
+  },
+  {
+    "denial_id": "DEN-032",
+    "claim_id": "CLM-032",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "remit_date": "2026-04-13",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "27",
+        "rarc": null,
+        "amount": "260.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "260.00",
+    "remit_note": "Expenses incurred after coverage terminated.",
+    "payer_context": "Eligibility file shows coverage termed 2026-01-26 following employment change."
+  },
+  {
+    "denial_id": "DEN-033",
+    "claim_id": "CLM-033",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "remit_date": "2026-06-03",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "22",
+        "rarc": "MA04",
+        "amount": "260.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "260.00",
+    "remit_note": "This care may be covered by another payer per coordination of benefits.",
+    "payer_context": "Member reported new employer coverage at last visit; COB questionnaire outstanding."
+  },
+  {
+    "denial_id": "DEN-034",
+    "claim_id": "CLM-034",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "remit_date": "2026-04-29",
+    "adjustments": [
+      {
+        "group_code": "OA",
+        "carc": "22",
+        "rarc": "MA04",
+        "amount": "1450.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "1450.00",
+    "remit_note": "This care may be covered by another payer per coordination of benefits.",
+    "payer_context": "Member reported new employer coverage at last visit; COB questionnaire outstanding."
+  },
+  {
+    "denial_id": "DEN-035",
+    "claim_id": "CLM-035",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "remit_date": "2026-03-29",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "22",
+        "rarc": "MA04",
+        "amount": "260.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "260.00",
+    "remit_note": "This care may be covered by another payer per coordination of benefits.",
+    "payer_context": "Member reported new employer coverage at last visit; COB questionnaire outstanding."
+  },
+  {
+    "denial_id": "DEN-036",
+    "claim_id": "CLM-036",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "remit_date": "2026-04-04",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "96",
+        "rarc": "N130",
+        "amount": "130.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "130.00",
+    "remit_note": "Non-covered charge(s). Consult plan benefit documents/guidelines for coverage.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-037",
+    "claim_id": "CLM-037",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "remit_date": "2026-05-16",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "96",
+        "rarc": "N130",
+        "amount": "95.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "95.00",
+    "remit_note": "Non-covered charge(s). Consult plan benefit documents/guidelines for coverage.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-038",
+    "claim_id": "CLM-038",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "remit_date": "2026-03-14",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "96",
+        "rarc": "N130",
+        "amount": "78.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "78.00",
+    "remit_note": "Non-covered charge(s). Consult plan benefit documents/guidelines for coverage.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-039",
+    "claim_id": "CLM-039",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "remit_date": "2026-03-29",
+    "adjustments": [
+      {
+        "group_code": "PR",
+        "carc": "1",
+        "rarc": null,
+        "amount": "245.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "245.00",
+    "remit_note": "Amount applied to patient deductible.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-040",
+    "claim_id": "CLM-040",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "remit_date": "2026-04-17",
+    "adjustments": [
+      {
+        "group_code": "PR",
+        "carc": "3",
+        "rarc": null,
+        "amount": "245.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "245.00",
+    "remit_note": "Amount applied to patient copay.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-041",
+    "claim_id": "CLM-041",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "remit_date": "2026-04-19",
+    "adjustments": [
+      {
+        "group_code": "PR",
+        "carc": "1",
+        "rarc": null,
+        "amount": "245.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "245.00",
+    "remit_note": "Amount applied to patient deductible.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-042",
+    "claim_id": "CLM-042",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "remit_date": "2026-04-10",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "45",
+        "rarc": null,
+        "amount": "1850.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "1850.00",
+    "remit_note": "Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-043",
+    "claim_id": "CLM-043",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "remit_date": "2026-03-18",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "45",
+        "rarc": null,
+        "amount": "1850.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "1850.00",
+    "remit_note": "Charge exceeds fee schedule/maximum allowable or contracted/legislated fee arrangement.",
+    "payer_context": null
+  },
+  {
+    "denial_id": "DEN-044",
+    "claim_id": "CLM-044",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "remit_date": "2026-04-26",
+    "adjustments": [
+      {
+        "group_code": "CO",
+        "carc": "A1",
+        "rarc": null,
+        "amount": "185.00",
+        "line_number": null
+      }
+    ],
+    "total_denied": "185.00",
+    "remit_note": "Claim/Service denied. See payer portal for details.",
+    "payer_context": null
+  }
+]

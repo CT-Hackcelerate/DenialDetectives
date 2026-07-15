@@ -1,0 +1,89 @@
+{
+  "claims": [
+    {
+      "claim_id": "CLM-201",
+      "payer_id": "87726",
+      "payer_name": "UnitedHealthcare",
+      "provider_npi": "1245319878",
+      "provider_name": "Riverbend Family Medicine",
+      "patient_ref": "PAT-99001",
+      "subscriber_id": "SUB990011223",
+      "date_of_service": "2026-06-20",
+      "date_submitted": "2026-06-24",
+      "diagnoses": ["E11.9"],
+      "lines": [
+        {
+          "line_number": 1,
+          "cpt_hcpcs": "99214",
+          "icd10_pointers": ["E11.9"],
+          "units": 1,
+          "charge": "260.00",
+          "place_of_service": "11"
+        }
+      ],
+      "total_charge": "999.00"
+    },
+    {
+      "claim_id": "CLM-202",
+      "payer_name": "Cigna",
+      "date_of_service": "2026-06-21",
+      "lines": []
+    }
+  ],
+  "denials": [
+    {
+      "denial_id": "DEN-201",
+      "claim_id": "CLM-201",
+      "payer_id": "87726",
+      "payer_name": "UnitedHealthcare",
+      "remit_date": "2026-07-10",
+      "adjustments": [
+        {
+          "group_code": "CO",
+          "carc": "16",
+          "rarc": "M76",
+          "amount": "125.00",
+          "line_number": 1
+        }
+      ],
+      "total_denied": "260.00",
+      "remit_note": "Adjustment sum will not match total_denied."
+    },
+    {
+      "denial_id": "DEN-202",
+      "claim_id": "CLM-999-MISSING",
+      "payer_id": "62308",
+      "payer_name": "Cigna",
+      "remit_date": "2026-07-10",
+      "adjustments": [
+        {
+          "group_code": "CO",
+          "carc": "50",
+          "rarc": "N115",
+          "amount": "300.00",
+          "line_number": null
+        }
+      ],
+      "total_denied": "300.00",
+      "remit_note": "References a claim that does not exist."
+    },
+    {
+      "denial_id": "DEN-001",
+      "claim_id": "CLM-001",
+      "payer_id": "60054",
+      "payer_name": "Aetna",
+      "remit_date": "2026-07-10",
+      "adjustments": [
+        {
+          "group_code": "CO",
+          "carc": "197",
+          "rarc": "M62",
+          "amount": "100.00",
+          "line_number": null
+        }
+      ],
+      "total_denied": "100.00",
+      "remit_note": "Duplicate of an existing denial id."
+    }
+  ]
+}

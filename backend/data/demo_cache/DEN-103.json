@@ -1,0 +1,537 @@
+{
+  "denial_id": "DEN-103",
+  "recorded_at": "2026-07-15T10:37:23+00:00",
+  "events": [
+    {
+      "event_id": "DEN-103-000-b42a79",
+      "denial_id": "DEN-103",
+      "seq": 0,
+      "type": "started",
+      "message": "Triage started for DEN-103 (Cigna, $510.00 at stake, 1 past lesson(s) injected).",
+      "payload": {
+        "claim_id": "CLM-103",
+        "value_at_stake": "510.00",
+        "lessons": [
+          {
+            "payer": "Cigna",
+            "carc": "29",
+            "lesson": "Cigna CARC 29 reconsiderations fail without clearinghouse acceptance proof (CIG-ADM-081); a cover letter or ledger screenshot is not proof.",
+            "source": "seed"
+          }
+        ]
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:35:30.276661Z"
+    },
+    {
+      "event_id": "DEN-103-001-6c3245",
+      "denial_id": "DEN-103",
+      "seq": 1,
+      "type": "thought",
+      "message": "I'll start by looking up CARC 4 / RARC N822 and checking resubmission history simultaneously, since the payer_context already gives us a strong lead (missing GP modifier).",
+      "payload": {},
+      "citations": [],
+      "ts": "2026-07-15T10:35:35.786549Z"
+    },
+    {
+      "event_id": "DEN-103-002-d6cfc4",
+      "denial_id": "DEN-103",
+      "seq": 2,
+      "type": "tool_call",
+      "message": "Calling carc_lookup({\"carc\": \"4\", \"rarc\": \"N822\"})",
+      "payload": {
+        "tool": "carc_lookup",
+        "input": {
+          "carc": "4",
+          "rarc": "N822"
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:35:35.787070Z"
+    },
+    {
+      "event_id": "DEN-103-003-87d1ec",
+      "denial_id": "DEN-103",
+      "seq": 3,
+      "type": "tool_result",
+      "message": "carc_lookup returned.",
+      "payload": {
+        "tool": "carc_lookup",
+        "result": {
+          "found": true,
+          "carc": "4",
+          "description": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+          "category": "coding_mismatch",
+          "typical_root_cause": "Required modifier (laterality/therapy discipline/anatomic) omitted at charge entry",
+          "typical_fix": "Append the correct modifier and resubmit as a corrected claim",
+          "citations": [
+            {
+              "source_type": "carc_definition",
+              "source_id": "CARC-4",
+              "quote": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+              "chroma_doc_id": null
+            },
+            {
+              "source_type": "rarc_definition",
+              "source_id": "RARC-N822",
+              "quote": "Missing procedure modifier(s).",
+              "chroma_doc_id": null
+            }
+          ],
+          "rarc": "N822",
+          "rarc_meaning": "Missing procedure modifier(s)."
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:35:35.789031Z"
+    },
+    {
+      "event_id": "DEN-103-004-fbfa71",
+      "denial_id": "DEN-103",
+      "seq": 4,
+      "type": "tool_call",
+      "message": "Calling resubmission_history({\"payer\": \"Cigna\", \"carc\": \"4\", \"fix_type\": \"append modifier GP to therapy line\"})",
+      "payload": {
+        "tool": "resubmission_history",
+        "input": {
+          "payer": "Cigna",
+          "carc": "4",
+          "fix_type": "append modifier GP to therapy line"
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:35:35.789493Z"
+    },
+    {
+      "event_id": "DEN-103-005-d3c3ac",
+      "denial_id": "DEN-103",
+      "seq": 5,
+      "type": "tool_result",
+      "message": "resubmission_history returned.",
+      "payload": {
+        "tool": "resubmission_history",
+        "result": {
+          "payer": "Cigna",
+          "carc": "4",
+          "fix_type": "append modifier GP to therapy line",
+          "matches": [
+            {
+              "resubmission_id": "RSB-008",
+              "summary": "Cigna denial CARC 29. Fix applied: Resubmitted with a cover letter but no proof of timely filing. Outcome: denied_again after 20 days. Notes: CIG-ADM-081 requires clearinghouse acceptance proof; none existed.",
+              "outcome": "denied_again",
+              "carc": "29",
+              "fields_changed": "none",
+              "distance": 0.6162
+            },
+            {
+              "resubmission_id": "RSB-012",
+              "summary": "Cigna denial CARC 22/MA04. Fix applied: Billed the primary payer first, then resubmitted with the primary EOB. Outcome: paid after 60 days. Notes: COB resolved via member questionnaire per CIG-ADM-102.",
+              "outcome": "paid",
+              "carc": "22",
+              "fields_changed": "none",
+              "distance": 0.6532
+            },
+            {
+              "resubmission_id": "RSB-003",
+              "summary": "Cigna denial CARC 16/N382. Fix applied: Replaced placeholder subscriber ID with the active member ID. Outcome: paid after 12 days.",
+              "outcome": "paid",
+              "carc": "16",
+              "fields_changed": "subscriber_id",
+              "distance": 0.67
+            }
+          ],
+          "precedent_count": 3,
+          "paid_count": 2,
+          "has_successful_precedent": true
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:36:04.072029Z"
+    },
+    {
+      "event_id": "DEN-103-006-3c5512",
+      "denial_id": "DEN-103",
+      "seq": 6,
+      "type": "thought",
+      "message": "Good. CARC 4 / RARC N822 is confirmed as a missing modifier issue. The resubmission history doesn't have an exact CARC-4/GP-modifier precedent — let me pull Cigna's policy on therapy discipline modifiers for 97110 to get a citable rule, and confirm the fix is sound.",
+      "payload": {},
+      "citations": [],
+      "ts": "2026-07-15T10:36:08.717709Z"
+    },
+    {
+      "event_id": "DEN-103-007-9e5d78",
+      "denial_id": "DEN-103",
+      "seq": 7,
+      "type": "tool_call",
+      "message": "Calling policy_retrieve({\"query\": \"therapy discipline modifier GP required physical therapy 97110\", \"payer\": \"Cigna\", \"k\": 3})",
+      "payload": {
+        "tool": "policy_retrieve",
+        "input": {
+          "query": "therapy discipline modifier GP required physical therapy 97110",
+          "payer": "Cigna",
+          "k": 3
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:36:08.718076Z"
+    },
+    {
+      "event_id": "DEN-103-008-7da936",
+      "denial_id": "DEN-103",
+      "seq": 8,
+      "type": "tool_result",
+      "message": "policy_retrieve returned.",
+      "payload": {
+        "tool": "policy_retrieve",
+        "result": {
+          "query": "therapy discipline modifier GP required physical therapy 97110",
+          "payer_filter": "Cigna",
+          "matches": [
+            {
+              "policy_number": "CIG-ADM-102",
+              "payer": "Cigna",
+              "topic": "Cigna Administrative Policy — Coordination of Benefits (COB)",
+              "text": "a plan covering the person as an active employee is primary to a plan covering them as a retiree or COBRA continuee. 4. **Medicare:** primacy follows federal MSP rules based on employer size and entitlement reason. ## Member COB information Cigna revalidates COB information every **twelve (12) months**. When the COB questionnaire on file has lapsed, claims pend or deny under this policy until the member responds. Providers cannot complete the questionnaire on the member's behalf, but can accelerate resolution by asking the member to update COB through the myCigna portal or member services line. ## Resolving a CARC 22 / MA04 denial 1. Verify other coverage at the practice level (eligibility responses, registration intake, prior EOBs). 2. If another payer is primary, bill that payer first, then resubmit to Cigna as secondary **with the primary EOB attached**. The timely filing clock for the secondary claim runs from the primary EOB date under policy CIG-ADM-081. 3. If Cigna is confirmed primary and the denial stems from a lapsed questionnaire, have the member update COB, then request reprocessing by phone or portal — no corrected claim is needed. 4. If no other coverage exists and the member is unreachable, the claim",
+              "distance": 0.7486,
+              "citation": {
+                "source_type": "payer_policy",
+                "source_id": "CIG-ADM-102",
+                "quote": "a plan covering the person as an active employee is primary to a plan covering them as a retiree or COBRA continuee. 4. **Medicare:** primacy follows federal MSP rules based on employer size and entitlement reason. ## Member COB information Cigna revalidates COB information every **twelve (12) month",
+                "chroma_doc_id": "cigna-coordination-of-benefits:01"
+              }
+            },
+            {
+              "policy_number": "CIG-ADM-081",
+              "payer": "Cigna",
+              "topic": "Cigna Administrative Policy — Timely Filing of Claims",
+              "text": "# Cigna Administrative Policy — Timely Filing of Claims **Policy Number:** CIG-ADM-081 **Payer:** Cigna **Effective:** January 1, 2026 | **Last reviewed:** January 2026 **Applies to:** Commercial plans (participating and non-participating providers) ## Filing deadline Participating providers must submit claims within **180 calendar days of the date of service** (for inpatient claims, 180 days from the date of discharge). Claims received after the deadline are denied with claim adjustment reason code **CARC 29** (the time limit for filing has expired), and the member may not be balance-billed for the denied amount. When Cigna is the **secondary payer**, the 180-day clock begins on the date of the primary payer's explanation of benefits rather than the date of service. ## Corrected claims and resubmissions A corrected claim must be received within **365 days of the date of service**, provided the original claim was received within the initial 180-day window. Corrected claims received without an original timely submission on file are denied under this policy. ## Reconsideration with proof of timely filing A CARC 29 denial may be overturned only when the provider submits **acceptable proof of timely filing** with the reconsideration request. Acceptable proof is limited to: 1. A clearinghouse acceptance report showing",
+              "distance": 0.7738,
+              "citation": {
+                "source_type": "payer_policy",
+                "source_id": "CIG-ADM-081",
+                "quote": "# Cigna Administrative Policy — Timely Filing of Claims **Policy Number:** CIG-ADM-081 **Payer:** Cigna **Effective:** January 1, 2026 | **Last reviewed:** January 2026 **Applies to:** Commercial plans (participating and non-participating providers) ## Filing deadline Participating providers must su",
+                "chroma_doc_id": "cigna-timely-filing:00"
+              }
+            },
+            {
+              "policy_number": "CIG-ADM-081",
+              "payer": "Cigna",
+              "topic": "Cigna Administrative Policy — Timely Filing of Claims",
+              "text": "## Practical guidance for denial management Before appealing a CARC 29 denial, confirm whether clearinghouse acceptance evidence exists. If no acceptable proof is available, the correct disposition is a **write-off to the provider**; the balance cannot be transferred to the member under the participating provider agreement.",
+              "distance": 0.7871,
+              "citation": {
+                "source_type": "payer_policy",
+                "source_id": "CIG-ADM-081",
+                "quote": "## Practical guidance for denial management Before appealing a CARC 29 denial, confirm whether clearinghouse acceptance evidence exists. If no acceptable proof is available, the correct disposition is a **write-off to the provider**; the balance cannot be transferred to the member under the particip",
+                "chroma_doc_id": "cigna-timely-filing:02"
+              }
+            }
+          ]
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:36:08.755020Z"
+    },
+    {
+      "event_id": "DEN-103-009-fac4f0",
+      "denial_id": "DEN-103",
+      "seq": 9,
+      "type": "context_retrieved",
+      "message": "Retrieved 3 policy chunk(s): CIG-ADM-081, CIG-ADM-102",
+      "payload": {
+        "chroma_doc_ids": [
+          "cigna-coordination-of-benefits:01",
+          "cigna-timely-filing:00",
+          "cigna-timely-filing:02"
+        ]
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:36:08.755633Z"
+    },
+    {
+      "event_id": "DEN-103-010-f5f5db",
+      "denial_id": "DEN-103",
+      "seq": 10,
+      "type": "thought",
+      "message": "Cigna's policy retrieval didn't surface a specific therapy modifier policy. However, the payer_context is explicit and the CARC/RARC codes are unambiguous. The fix is clear — let me now record the root cause and propose the fix.",
+      "payload": {},
+      "citations": [],
+      "ts": "2026-07-15T10:36:16.822851Z"
+    },
+    {
+      "event_id": "DEN-103-011-1dae33",
+      "denial_id": "DEN-103",
+      "seq": 11,
+      "type": "root_cause",
+      "message": "Root cause: coding_mismatch — CPT 97110 (therapeutic exercise) was billed without the required therapy discipline modifier GP (physical therapy), causing Cigna to deny the line under CARC 4 / RARC N822. The payer_context confirms the omission was a charge-entry oversight and that documentation supports the service.",
+      "payload": {
+        "category": "coding_mismatch",
+        "summary": "CPT 97110 (therapeutic exercise) was billed without the required therapy discipline modifier GP (physical therapy), causing Cigna to deny the line under CARC 4 / RARC N822. The payer_context confirms the omission was a charge-entry oversight and that documentation supports the service.",
+        "implicated_codes": [
+          "97110",
+          "GP"
+        ],
+        "is_correctable": true,
+        "confidence": 0.97,
+        "citations": [
+          {
+            "source_type": "carc_definition",
+            "source_id": "CARC-4",
+            "quote": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+            "chroma_doc_id": null
+          },
+          {
+            "source_type": "rarc_definition",
+            "source_id": "RARC-N822",
+            "quote": "Missing procedure modifier(s).",
+            "chroma_doc_id": null
+          }
+        ],
+        "citations_dropped": 0
+      },
+      "citations": [
+        {
+          "source_type": "carc_definition",
+          "source_id": "CARC-4",
+          "quote": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+          "chroma_doc_id": null
+        },
+        {
+          "source_type": "rarc_definition",
+          "source_id": "RARC-N822",
+          "quote": "Missing procedure modifier(s).",
+          "chroma_doc_id": null
+        }
+      ],
+      "ts": "2026-07-15T10:36:16.823408Z"
+    },
+    {
+      "event_id": "DEN-103-012-86b5f9",
+      "denial_id": "DEN-103",
+      "seq": 12,
+      "type": "fix_proposed",
+      "message": "Fix proposed: 1 operation(s) on CLM-103.",
+      "payload": {
+        "fix_id": "FIX-DEN-103-012",
+        "claim_id": "CLM-103",
+        "operations": [
+          {
+            "field_path": "lines[0].modifiers",
+            "op": "add",
+            "old_value": null,
+            "new_value": "GP",
+            "reason": "Therapy discipline modifier GP (physical therapy services) was omitted at charge entry; required by Cigna for CPT 97110 and confirmed by CARC 4 / RARC N822 denial."
+          }
+        ],
+        "citation": {
+          "source_type": "carc_definition",
+          "source_id": "CARC-4",
+          "quote": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+          "chroma_doc_id": null
+        },
+        "proposed_by": "llm",
+        "validated": false,
+        "applied": false,
+        "validation_error": null
+      },
+      "citations": [
+        {
+          "source_type": "carc_definition",
+          "source_id": "CARC-4",
+          "quote": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+          "chroma_doc_id": null
+        }
+      ],
+      "ts": "2026-07-15T10:36:20.557707Z"
+    },
+    {
+      "event_id": "DEN-103-013-ac5d86",
+      "denial_id": "DEN-103",
+      "seq": 13,
+      "type": "fix_validated",
+      "message": "Fix passed whitelist validation.",
+      "payload": {
+        "fix_id": "FIX-DEN-103-012",
+        "claim_id": "CLM-103",
+        "operations": [
+          {
+            "field_path": "lines[0].modifiers",
+            "op": "add",
+            "old_value": null,
+            "new_value": "GP",
+            "reason": "Therapy discipline modifier GP (physical therapy services) was omitted at charge entry; required by Cigna for CPT 97110 and confirmed by CARC 4 / RARC N822 denial."
+          }
+        ],
+        "citation": {
+          "source_type": "carc_definition",
+          "source_id": "CARC-4",
+          "quote": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+          "chroma_doc_id": null
+        },
+        "proposed_by": "llm",
+        "validated": true,
+        "applied": false,
+        "validation_error": null
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:36:20.558640Z"
+    },
+    {
+      "event_id": "DEN-103-014-517230",
+      "denial_id": "DEN-103",
+      "seq": 14,
+      "type": "thought",
+      "message": "Fix validated. Now I'll commit the decision.",
+      "payload": {},
+      "citations": [],
+      "ts": "2026-07-15T10:37:23.218724Z"
+    },
+    {
+      "event_id": "DEN-103-015-7f55d4",
+      "denial_id": "DEN-103",
+      "seq": 15,
+      "type": "decision",
+      "message": "Decision: auto_fix_resubmit (confidence 0.95, $510.00 at stake).",
+      "payload": {
+        "route": "auto_fix_resubmit",
+        "confidence": 0.95,
+        "value_at_stake": "510.00",
+        "rationale": "Root cause is unambiguous: modifier GP was omitted from CPT 97110 at charge entry, confirmed by CARC 4 (missing/inconsistent modifier), RARC N822 (missing procedure modifier), and the payer's own remit context. The fix — appending modifier GP to line 1 — is a validated, whitelisted field edit. Value at stake is $510 (under the $1,000 guardrail). Confidence is 0.95, exceeding the 0.85 threshold. All three guardrail conditions for auto_fix_resubmit are satisfied.",
+        "citations": [
+          {
+            "source_type": "carc_definition",
+            "source_id": "CARC-4",
+            "quote": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+            "chroma_doc_id": null
+          },
+          {
+            "source_type": "rarc_definition",
+            "source_id": "RARC-N822",
+            "quote": "Missing procedure modifier(s).",
+            "chroma_doc_id": null
+          }
+        ],
+        "guardrail_note": "Auto path allowed: confidence 0.95 > 0.85 and value $510.00 < $1000.00.",
+        "requested_route": "auto_fix_resubmit",
+        "rejected_routes": {
+          "appeal": "No clinical or coverage dispute exists — the payer acknowledged documentation supports the service; the sole issue is the missing modifier, which is correctable via resubmission, making a formal appeal unnecessary and slower.",
+          "write_off": "The denial is fully correctable by appending the omitted GP modifier; writing off $510 for a charge-entry oversight would be inappropriate.",
+          "human_review": "All facts are deterministic (CARC 4, RARC N822, missing GP, documentation confirmed by payer), the fix is whitelisted and validated, and confidence exceeds the 0.85 threshold required to bypass human review."
+        },
+        "citations_dropped": 0
+      },
+      "citations": [
+        {
+          "source_type": "carc_definition",
+          "source_id": "CARC-4",
+          "quote": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+          "chroma_doc_id": null
+        },
+        {
+          "source_type": "rarc_definition",
+          "source_id": "RARC-N822",
+          "quote": "Missing procedure modifier(s).",
+          "chroma_doc_id": null
+        }
+      ],
+      "ts": "2026-07-15T10:37:23.219338Z"
+    },
+    {
+      "event_id": "DEN-103-016-795a26",
+      "denial_id": "DEN-103",
+      "seq": 16,
+      "type": "fix_applied",
+      "message": "Fix applied to a copy of CLM-103; revision 0 -> 1.",
+      "payload": {
+        "fix": {
+          "fix_id": "FIX-DEN-103-012",
+          "claim_id": "CLM-103",
+          "operations": [
+            {
+              "field_path": "lines[0].modifiers",
+              "op": "add",
+              "old_value": null,
+              "new_value": "GP",
+              "reason": "Therapy discipline modifier GP (physical therapy services) was omitted at charge entry; required by Cigna for CPT 97110 and confirmed by CARC 4 / RARC N822 denial."
+            }
+          ],
+          "citation": {
+            "source_type": "carc_definition",
+            "source_id": "CARC-4",
+            "quote": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+            "chroma_doc_id": null
+          },
+          "proposed_by": "llm",
+          "validated": true,
+          "applied": true,
+          "validation_error": null
+        },
+        "claim": {
+          "claim_id": "CLM-103",
+          "payer_id": "62308",
+          "payer_name": "Cigna",
+          "provider_npi": "1356720944",
+          "provider_name": "Harbor Physical Therapy Group",
+          "patient_ref": "PAT-88052",
+          "subscriber_id": "SUB884455667",
+          "date_of_service": "2026-05-11",
+          "date_submitted": "2026-05-15",
+          "prior_auth_number": "A-2026-8802",
+          "diagnoses": [
+            "M25.561"
+          ],
+          "lines": [
+            {
+              "line_number": 1,
+              "cpt_hcpcs": "97110",
+              "modifiers": [
+                "GP"
+              ],
+              "icd10_pointers": [
+                "M25.561"
+              ],
+              "units": 6,
+              "charge": "510.00",
+              "place_of_service": "11"
+            }
+          ],
+          "total_charge": "510.00",
+          "revision": 1
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:37:23.219918Z"
+    },
+    {
+      "event_id": "DEN-103-017-0915a8",
+      "denial_id": "DEN-103",
+      "seq": 17,
+      "type": "resubmitted",
+      "message": "Resubmission accepted (trace TRC-C763443382, ack A2).",
+      "payload": {
+        "status": "accepted",
+        "trace_id": "TRC-C763443382",
+        "payer_ack_code": "A2",
+        "message": "Claim CLM-103 accepted for adjudication.",
+        "errors": []
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:37:23.220325Z"
+    },
+    {
+      "event_id": "DEN-103-018-471d3e",
+      "denial_id": "DEN-103",
+      "seq": 18,
+      "type": "completed",
+      "message": "Triage complete: auto_fix_resubmit | root cause: coding_mismatch",
+      "payload": {
+        "route": "auto_fix_resubmit",
+        "root_cause_category": "coding_mismatch",
+        "value_at_stake": "510.00",
+        "resubmit_status": "accepted"
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:37:23.245618Z"
+    }
+  ]
+}

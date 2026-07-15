@@ -1,0 +1,20 @@
+[
+  {
+    "payer": "UnitedHealthcare",
+    "carc": "16",
+    "lesson": "UHC 16/N54 on an E/M billed with a same-day procedure is usually a missing modifier 25, not missing documentation — run ncci_edit_check before attaching records.",
+    "source": "seed"
+  },
+  {
+    "payer": "Aetna",
+    "carc": "197",
+    "lesson": "Aetna denies retro-auth requests for 29881 made more than 3 business days after service (AET-SURG-014) — resubmitting unchanged without an auth number never pays.",
+    "source": "seed"
+  },
+  {
+    "payer": "Cigna",
+    "carc": "29",
+    "lesson": "Cigna CARC 29 reconsiderations fail without clearinghouse acceptance proof (CIG-ADM-081); a cover letter or ledger screenshot is not proof.",
+    "source": "seed"
+  }
+]

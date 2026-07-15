@@ -1,0 +1,506 @@
+{
+  "denial_id": "DEN-002",
+  "recorded_at": "2026-07-15T10:55:36+00:00",
+  "events": [
+    {
+      "event_id": "DEN-002-000-8aa10a",
+      "denial_id": "DEN-002",
+      "seq": 0,
+      "type": "started",
+      "message": "Triage started for DEN-002 (Blue Cross Blue Shield, $3400.00 at stake).",
+      "payload": {
+        "claim_id": "CLM-002",
+        "value_at_stake": "3400.00",
+        "lessons": []
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:53:47.870723Z"
+    },
+    {
+      "event_id": "DEN-002-001-116d7b",
+      "denial_id": "DEN-002",
+      "seq": 1,
+      "type": "thought",
+      "message": "I'll systematically investigate this denial. CARC 197 means \"precertification/authorization absent\" — let me look up the codes and simultaneously check BCBS's prior auth requirement for CPT 70553 (MRI brain with contrast).",
+      "payload": {},
+      "citations": [],
+      "ts": "2026-07-15T10:53:51.858752Z"
+    },
+    {
+      "event_id": "DEN-002-002-0b318c",
+      "denial_id": "DEN-002",
+      "seq": 2,
+      "type": "tool_call",
+      "message": "Calling carc_lookup({\"carc\": \"197\", \"rarc\": \"M62\"})",
+      "payload": {
+        "tool": "carc_lookup",
+        "input": {
+          "carc": "197",
+          "rarc": "M62"
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:53:51.859228Z"
+    },
+    {
+      "event_id": "DEN-002-003-fb6099",
+      "denial_id": "DEN-002",
+      "seq": 3,
+      "type": "tool_result",
+      "message": "carc_lookup returned.",
+      "payload": {
+        "tool": "carc_lookup",
+        "result": {
+          "found": true,
+          "carc": "197",
+          "description": "Precertification/authorization/notification absent.",
+          "category": "auth_required",
+          "typical_root_cause": "Required prior authorization missing from the claim",
+          "typical_fix": "If auth exists key it onto the claim and resubmit; else pursue retro-auth per payer policy",
+          "citations": [
+            {
+              "source_type": "carc_definition",
+              "source_id": "CARC-197",
+              "quote": "Precertification/authorization/notification absent.",
+              "chroma_doc_id": null
+            },
+            {
+              "source_type": "rarc_definition",
+              "source_id": "RARC-M62",
+              "quote": "Missing/incomplete/invalid treatment authorization code.",
+              "chroma_doc_id": null
+            }
+          ],
+          "rarc": "M62",
+          "rarc_meaning": "Missing/incomplete/invalid treatment authorization code."
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:53:51.859459Z"
+    },
+    {
+      "event_id": "DEN-002-004-2ae22e",
+      "denial_id": "DEN-002",
+      "seq": 4,
+      "type": "tool_call",
+      "message": "Calling prior_auth_status({\"payer\": \"Blue Cross Blue Shield\", \"cpt\": \"70553\"})",
+      "payload": {
+        "tool": "prior_auth_status",
+        "input": {
+          "payer": "Blue Cross Blue Shield",
+          "cpt": "70553"
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:53:51.859642Z"
+    },
+    {
+      "event_id": "DEN-002-005-471ad7",
+      "denial_id": "DEN-002",
+      "seq": 5,
+      "type": "tool_result",
+      "message": "prior_auth_status returned.",
+      "payload": {
+        "tool": "prior_auth_status",
+        "result": {
+          "payer": "Blue Cross Blue Shield",
+          "cpt": "70553",
+          "auth_required": false,
+          "auth_number": null,
+          "status": "not_required",
+          "citations": [],
+          "note": "No Blue Cross Blue Shield policy chunk mentions precert for 70553; treating as not required."
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:53:51.903126Z"
+    },
+    {
+      "event_id": "DEN-002-006-9690d3",
+      "denial_id": "DEN-002",
+      "seq": 6,
+      "type": "thought",
+      "message": "Interesting — BCBS's own policy doesn't flag 70553 as requiring prior auth according to the lookup. But let me dig deeper with a direct policy search and also check resubmission history before drawing conclusions.",
+      "payload": {},
+      "citations": [],
+      "ts": "2026-07-15T10:53:55.533535Z"
+    },
+    {
+      "event_id": "DEN-002-007-7303fe",
+      "denial_id": "DEN-002",
+      "seq": 7,
+      "type": "tool_call",
+      "message": "Calling policy_retrieve({\"query\": \"prior authorization required CPT 70553 MRI brain imaging\", \"payer\": \"Blue Cross Blue Shield\", \"k\": 4})",
+      "payload": {
+        "tool": "policy_retrieve",
+        "input": {
+          "query": "prior authorization required CPT 70553 MRI brain imaging",
+          "payer": "Blue Cross Blue Shield",
+          "k": 4
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:53:55.534067Z"
+    },
+    {
+      "event_id": "DEN-002-008-eaca7e",
+      "denial_id": "DEN-002",
+      "seq": 8,
+      "type": "tool_result",
+      "message": "policy_retrieve returned.",
+      "payload": {
+        "tool": "policy_retrieve",
+        "result": {
+          "query": "prior authorization required CPT 70553 MRI brain imaging",
+          "payer_filter": "Blue Cross Blue Shield",
+          "matches": [
+            {
+              "policy_number": "BCBS-RP-107",
+              "payer": "Blue Cross Blue Shield",
+              "topic": "Blue Cross Blue Shield Reimbursement Policy — Correct Coding and NCCI Bundling Edits",
+              "text": "the component code. - **Indicator 1:** the edit may be bypassed with an appropriate NCCI modifier when the clinical circumstances genuinely warrant separate payment. ## Acceptable bypass modifiers For **procedure-to-procedure** combinations (indicator 1), acceptable modifiers are **59** or the more specific X-series: XE (separate encounter), XS (separate structure), XP (separate practitioner), and XU (unusual non-overlapping service). The X-series is preferred; modifier 59 should be used only when no X modifier applies. For **E/M services** denied against a same-day procedure, the applicable modifier is **25** on the E/M line, supported by documentation of a significant, separately identifiable evaluation. ## Documentation standard A bypass modifier is an attestation, not a fix. The medical record must document the distinct encounter, anatomic site, or service that justifies it — for example, arthroscopic chondroplasty (29877) reported with meniscectomy (29881) is separately payable **only when performed in a different compartment of the knee**, and the operative note must name the compartments. Modifiers appended without supporting documentation are recovered on postpayment audit, and repeated unsupported use of modifier 59 may result in prepayment review status. ## Resubmission guidance Denied component lines should be corrected and resubmitted as replacement claims (frequency code 7) with the appropriate modifier, or",
+              "distance": 0.688,
+              "citation": {
+                "source_type": "payer_policy",
+                "source_id": "BCBS-RP-107",
+                "quote": "the component code. - **Indicator 1:** the edit may be bypassed with an appropriate NCCI modifier when the clinical circumstances genuinely warrant separate payment. ## Acceptable bypass modifiers For **procedure-to-procedure** combinations (indicator 1), acceptable modifiers are **59** or the more ",
+                "chroma_doc_id": "bcbs-ncci-bundling:01"
+              }
+            },
+            {
+              "policy_number": "BCBS-RP-107",
+              "payer": "Blue Cross Blue Shield",
+              "topic": "Blue Cross Blue Shield Reimbursement Policy — Correct Coding and NCCI Bundling Edits",
+              "text": "# Blue Cross Blue Shield Reimbursement Policy — Correct Coding and NCCI Bundling Edits **Policy Number:** BCBS-RP-107 **Payer:** Blue Cross Blue Shield **Effective:** January 1, 2026 | **Last reviewed:** April 2026 **Applies to:** All commercial products ## Policy statement Blue Cross Blue Shield adjudicates professional and outpatient facility claims against the CMS **National Correct Coding Initiative (NCCI) procedure-to-procedure (PTP) edit tables**, updated quarterly. When two codes on the same claim for the same member and date of service hit a PTP edit, the **column 2 (component) code is denied** and the column 1 (comprehensive) code is paid. These denials appear on the remittance as **CARC 97** (benefit included in another adjudicated service) or **CARC 236** (procedure combination not compatible per NCCI), typically with remark code N20. ## Modifier indicators Each PTP edit carries a modifier indicator that governs whether the edit can be bypassed: - **Indicator 0:** the edit can never be bypassed. The column 2 code is not separately payable under any circumstances, and appending a modifier will not change the outcome. The correct disposition is a write-off of the component code. - **Indicator 1:** the edit may be bypassed with an appropriate NCCI modifier when the clinical circumstances",
+              "distance": 0.6948,
+              "citation": {
+                "source_type": "payer_policy",
+                "source_id": "BCBS-RP-107",
+                "quote": "# Blue Cross Blue Shield Reimbursement Policy — Correct Coding and NCCI Bundling Edits **Policy Number:** BCBS-RP-107 **Payer:** Blue Cross Blue Shield **Effective:** January 1, 2026 | **Last reviewed:** April 2026 **Applies to:** All commercial products ## Policy statement Blue Cross Blue Shield ad",
+                "chroma_doc_id": "bcbs-ncci-bundling:00"
+              }
+            },
+            {
+              "policy_number": "BCBS-RP-107",
+              "payer": "Blue Cross Blue Shield",
+              "topic": "Blue Cross Blue Shield Reimbursement Policy — Correct Coding and NCCI Bundling Edits",
+              "text": "guidance Denied component lines should be corrected and resubmitted as replacement claims (frequency code 7) with the appropriate modifier, or written off when the indicator is 0 or documentation does not support distinct services. Do not appeal indicator-0 edits; they are upheld as a matter of coding policy.",
+              "distance": 0.7993,
+              "citation": {
+                "source_type": "payer_policy",
+                "source_id": "BCBS-RP-107",
+                "quote": "guidance Denied component lines should be corrected and resubmitted as replacement claims (frequency code 7) with the appropriate modifier, or written off when the indicator is 0 or documentation does not support distinct services. Do not appeal indicator-0 edits; they are upheld as a matter of codi",
+                "chroma_doc_id": "bcbs-ncci-bundling:02"
+              }
+            },
+            {
+              "policy_number": "BCBS-ELG-019",
+              "payer": "Blue Cross Blue Shield",
+              "topic": "Blue Cross Blue Shield Administrative Policy — Eligibility Verification and Coverage Termination",
+              "text": "may report terminations up to sixty (60) days in arrears, which can reverse previously paid claims. ## Provider verification standard Eligibility should be verified through the 270/271 transaction or the Availity portal **within seventy-two (72) hours before each date of service**. A verification response showing active coverage, retained with the timestamp, protects the provider in retroactive termination disputes: when a provider relied on a positive eligibility response and coverage was later termed retroactively, the provider may invoke the **eligibility reliance provision** and request claim reprocessing rather than absorbing the denial. ## Resolving a CARC 27 denial 1. Pull the eligibility history for the member and confirm the termination date against the date of service. 2. If the termination date is **after** the date of service, the denial is erroneous — request reprocessing with the eligibility response attached. 3. If coverage genuinely termed before the date of service, check for replacement coverage (new employer plan, exchange plan, Medicaid); registration data or the member can supply the new payer, and the claim should be redirected there within that payer's filing limit. 4. If no active coverage existed, the balance is **member liability**. Bill the member directly; no appeal to Blue Cross Blue",
+              "distance": 0.8047,
+              "citation": {
+                "source_type": "payer_policy",
+                "source_id": "BCBS-ELG-019",
+                "quote": "may report terminations up to sixty (60) days in arrears, which can reverse previously paid claims. ## Provider verification standard Eligibility should be verified through the 270/271 transaction or the Availity portal **within seventy-two (72) hours before each date of service**. A verification re",
+                "chroma_doc_id": "bcbs-eligibility-termination:01"
+              }
+            }
+          ]
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:53:55.566959Z"
+    },
+    {
+      "event_id": "DEN-002-009-025139",
+      "denial_id": "DEN-002",
+      "seq": 9,
+      "type": "context_retrieved",
+      "message": "Retrieved 4 policy chunk(s): BCBS-ELG-019, BCBS-RP-107",
+      "payload": {
+        "chroma_doc_ids": [
+          "bcbs-ncci-bundling:01",
+          "bcbs-ncci-bundling:00",
+          "bcbs-ncci-bundling:02",
+          "bcbs-eligibility-termination:01"
+        ]
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:53:55.567581Z"
+    },
+    {
+      "event_id": "DEN-002-010-fa3fdb",
+      "denial_id": "DEN-002",
+      "seq": 10,
+      "type": "thought",
+      "message": "The policy search returned NCCI/bundling and eligibility policies but nothing specific to prior auth for 70553. This is a single-line claim with no bundling at play. Given that BCBS's policy doesn't confirm auth is required for 70553, but the denial explicitly states CARC 197 + RARC M62 (\"missing treatment authorization code\"), this could be a plan-specific or product-level requirement not captured in general policy. Let me check resubmission history for the most likely fix paths.",
+      "payload": {},
+      "citations": [],
+      "ts": "2026-07-15T10:54:05.394731Z"
+    },
+    {
+      "event_id": "DEN-002-011-3c8271",
+      "denial_id": "DEN-002",
+      "seq": 11,
+      "type": "tool_call",
+      "message": "Calling resubmission_history({\"payer\": \"Blue Cross Blue Shield\", \"carc\": \"197\", \"fix_type\": \"add prior auth number to claim\"})",
+      "payload": {
+        "tool": "resubmission_history",
+        "input": {
+          "payer": "Blue Cross Blue Shield",
+          "carc": "197",
+          "fix_type": "add prior auth number to claim"
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:54:05.395044Z"
+    },
+    {
+      "event_id": "DEN-002-012-7af666",
+      "denial_id": "DEN-002",
+      "seq": 12,
+      "type": "tool_result",
+      "message": "resubmission_history returned.",
+      "payload": {
+        "tool": "resubmission_history",
+        "result": {
+          "payer": "Blue Cross Blue Shield",
+          "carc": "197",
+          "fix_type": "add prior auth number to claim",
+          "matches": [
+            {
+              "resubmission_id": "RSB-009",
+              "summary": "Blue Cross Blue Shield denial CARC 11. Fix applied: Repointed the line to the supported diagnosis already on the claim. Outcome: paid after 13 days.",
+              "outcome": "paid",
+              "carc": "11",
+              "fields_changed": "lines[0].icd10_pointers",
+              "distance": 0.4449
+            },
+            {
+              "resubmission_id": "RSB-004",
+              "summary": "Blue Cross Blue Shield denial CARC 4/N822. Fix applied: Added laterality modifier LT omitted at charge entry. Outcome: paid after 16 days.",
+              "outcome": "paid",
+              "carc": "4",
+              "fields_changed": "lines[0].modifiers",
+              "distance": 0.4689
+            },
+            {
+              "resubmission_id": "RSB-013",
+              "summary": "Blue Cross Blue Shield denial CARC 236/N20. Fix applied: Appended modifier 59 without supporting documentation. Outcome: denied_again after 17 days. Notes: BCBS-RP-107: modifier 59 requires documented distinct anatomic site.",
+              "outcome": "denied_again",
+              "carc": "236",
+              "fields_changed": "lines[1].modifiers",
+              "distance": 0.496
+            },
+            {
+              "resubmission_id": "RSB-014",
+              "summary": "Blue Cross Blue Shield denial CARC 236/N20. Fix applied: Corrected coding per the NCCI edit and wrote off the bundled component. Outcome: paid after 14 days. Notes: Same-compartment chondroplasty is genuinely bundled with 29881.",
+              "outcome": "paid",
+              "carc": "236",
+              "fields_changed": "lines[1].modifiers",
+              "distance": 0.6154
+            }
+          ],
+          "precedent_count": 4,
+          "paid_count": 3,
+          "has_successful_precedent": true
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:54:05.427481Z"
+    },
+    {
+      "event_id": "DEN-002-013-ba54bb",
+      "denial_id": "DEN-002",
+      "seq": 13,
+      "type": "tool_call",
+      "message": "Calling resubmission_history({\"payer\": \"Blue Cross Blue Shield\", \"carc\": \"197\", \"fix_type\": \"appeal claiming auth not required\"})",
+      "payload": {
+        "tool": "resubmission_history",
+        "input": {
+          "payer": "Blue Cross Blue Shield",
+          "carc": "197",
+          "fix_type": "appeal claiming auth not required"
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:54:05.428051Z"
+    },
+    {
+      "event_id": "DEN-002-014-7f0c89",
+      "denial_id": "DEN-002",
+      "seq": 14,
+      "type": "tool_result",
+      "message": "resubmission_history returned.",
+      "payload": {
+        "tool": "resubmission_history",
+        "result": {
+          "payer": "Blue Cross Blue Shield",
+          "carc": "197",
+          "fix_type": "appeal claiming auth not required",
+          "matches": [
+            {
+              "resubmission_id": "RSB-009",
+              "summary": "Blue Cross Blue Shield denial CARC 11. Fix applied: Repointed the line to the supported diagnosis already on the claim. Outcome: paid after 13 days.",
+              "outcome": "paid",
+              "carc": "11",
+              "fields_changed": "lines[0].icd10_pointers",
+              "distance": 0.4637
+            },
+            {
+              "resubmission_id": "RSB-013",
+              "summary": "Blue Cross Blue Shield denial CARC 236/N20. Fix applied: Appended modifier 59 without supporting documentation. Outcome: denied_again after 17 days. Notes: BCBS-RP-107: modifier 59 requires documented distinct anatomic site.",
+              "outcome": "denied_again",
+              "carc": "236",
+              "fields_changed": "lines[1].modifiers",
+              "distance": 0.5392
+            },
+            {
+              "resubmission_id": "RSB-004",
+              "summary": "Blue Cross Blue Shield denial CARC 4/N822. Fix applied: Added laterality modifier LT omitted at charge entry. Outcome: paid after 16 days.",
+              "outcome": "paid",
+              "carc": "4",
+              "fields_changed": "lines[0].modifiers",
+              "distance": 0.5404
+            },
+            {
+              "resubmission_id": "RSB-014",
+              "summary": "Blue Cross Blue Shield denial CARC 236/N20. Fix applied: Corrected coding per the NCCI edit and wrote off the bundled component. Outcome: paid after 14 days. Notes: Same-compartment chondroplasty is genuinely bundled with 29881.",
+              "outcome": "paid",
+              "carc": "236",
+              "fields_changed": "lines[1].modifiers",
+              "distance": 0.6731
+            }
+          ],
+          "precedent_count": 4,
+          "paid_count": 3,
+          "has_successful_precedent": true
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:54:05.464404Z"
+    },
+    {
+      "event_id": "DEN-002-015-e7ece0",
+      "denial_id": "DEN-002",
+      "seq": 15,
+      "type": "thought",
+      "message": "The resubmission history has no direct CARC 197 precedents for 70553 — the returned matches are for different CARCs (11, 4, 236) with moderate distances. No clean \"add auth number → paid\" precedent exists for this payer/CARC combo. Now I have enough to make my determination. Here's what the evidence shows:\n\n- **CARC 197 + RARC M62**: Authorization explicitly required but absent from the claim (`prior_auth_number: null`)\n- **`prior_auth_status` tool**: Could not confirm auth is required by BCBS policy for 70553 — but the payer's own remittance is explicit\n- **$3,400 claim value**: Exceeds the $1,000 guardrail for auto-fix (even if we had a validated auth number to add, we don't — the field is null and we have no auth number to populate)\n- **No direct CARC 197 fix precedent** found for BCBS for this procedure\n\nThe true issue is that Summit Imaging submitted a brain MRI (70553) without a prior authorization number, and BCBS denied the entire claim. The fix requires either: (a) obtaining retro-authorization from BCBS, or (b) appealing with documentation that auth was not required for this specific plan/product. Neither is automatable — both require human action.",
+      "payload": {},
+      "citations": [],
+      "ts": "2026-07-15T10:54:51.802924Z"
+    },
+    {
+      "event_id": "DEN-002-016-5d6d91",
+      "denial_id": "DEN-002",
+      "seq": 16,
+      "type": "root_cause",
+      "message": "Root cause: auth_required — CPT 70553 (MRI brain with contrast) was submitted to Blue Cross Blue Shield without a prior authorization number (prior_auth_number is null on the claim). BCBS denied the entire $3,400 claim under CARC 197 / RARC M62, explicitly citing absent precertification. No auth number exists to add; resolution requires either obtaining retro-authorization from BCBS or appealing on the basis that the specific plan/product does not require auth for this procedure.",
+      "payload": {
+        "category": "auth_required",
+        "summary": "CPT 70553 (MRI brain with contrast) was submitted to Blue Cross Blue Shield without a prior authorization number (prior_auth_number is null on the claim). BCBS denied the entire $3,400 claim under CARC 197 / RARC M62, explicitly citing absent precertification. No auth number exists to add; resolution requires either obtaining retro-authorization from BCBS or appealing on the basis that the specific plan/product does not require auth for this procedure.",
+        "implicated_codes": [
+          "70553"
+        ],
+        "is_correctable": true,
+        "confidence": 0.91,
+        "citations": [
+          {
+            "source_type": "carc_definition",
+            "source_id": "CARC-197",
+            "quote": "Precertification/authorization/notification absent.",
+            "chroma_doc_id": null
+          },
+          {
+            "source_type": "rarc_definition",
+            "source_id": "RARC-M62",
+            "quote": "Missing/incomplete/invalid treatment authorization code.",
+            "chroma_doc_id": null
+          }
+        ],
+        "citations_dropped": 0
+      },
+      "citations": [
+        {
+          "source_type": "carc_definition",
+          "source_id": "CARC-197",
+          "quote": "Precertification/authorization/notification absent.",
+          "chroma_doc_id": null
+        },
+        {
+          "source_type": "rarc_definition",
+          "source_id": "RARC-M62",
+          "quote": "Missing/incomplete/invalid treatment authorization code.",
+          "chroma_doc_id": null
+        }
+      ],
+      "ts": "2026-07-15T10:54:51.803436Z"
+    },
+    {
+      "event_id": "DEN-002-017-ddf578",
+      "denial_id": "DEN-002",
+      "seq": 17,
+      "type": "decision",
+      "message": "Decision: human_review (confidence 0.91, $3400.00 at stake).",
+      "payload": {
+        "route": "human_review",
+        "confidence": 0.91,
+        "value_at_stake": "3400.00",
+        "rationale": "The claim was denied because no prior authorization number was obtained or submitted for CPT 70553 (brain MRI, $3,400). The claim field prior_auth_number is null — there is no auth number to simply key onto the claim. Resolution requires a human to either: (1) contact BCBS to request retroactive authorization and, if granted, resubmit with the auth number, or (2) compile documentation showing the specific BCBS plan/product does not require auth for 70553 and file a formal appeal. Both paths require clinical documentation review and payer outreach that cannot be automated. The $3,400 value also exceeds the $1,000 auto-fix guardrail threshold.",
+        "citations": [
+          {
+            "source_type": "carc_definition",
+            "source_id": "CARC-197",
+            "quote": "Precertification/authorization/notification absent.",
+            "chroma_doc_id": null
+          },
+          {
+            "source_type": "rarc_definition",
+            "source_id": "RARC-M62",
+            "quote": "Missing/incomplete/invalid treatment authorization code.",
+            "chroma_doc_id": null
+          }
+        ],
+        "guardrail_note": null,
+        "requested_route": "human_review",
+        "rejected_routes": {
+          "auto_fix_resubmit": "No prior auth number exists on the claim or in any source; there is nothing to populate in prior_auth_number, and the $3,400 value exceeds the $1,000 auto-fix value guardrail — the guardrail would reroute this to human_review regardless.",
+          "appeal": "Appeal is premature: if retro-authorization can be obtained from BCBS, a corrected claim resubmission is faster and more likely to succeed than a formal appeal. Appeal should only be pursued if retro-auth is denied.",
+          "write_off": "The denial is correctable — either through retro-auth or an appeal demonstrating auth was not required for this plan product — so writing off $3,400 is inappropriate at this stage."
+        },
+        "citations_dropped": 0
+      },
+      "citations": [
+        {
+          "source_type": "carc_definition",
+          "source_id": "CARC-197",
+          "quote": "Precertification/authorization/notification absent.",
+          "chroma_doc_id": null
+        },
+        {
+          "source_type": "rarc_definition",
+          "source_id": "RARC-M62",
+          "quote": "Missing/incomplete/invalid treatment authorization code.",
+          "chroma_doc_id": null
+        }
+      ],
+      "ts": "2026-07-15T10:55:36.441765Z"
+    },
+    {
+      "event_id": "DEN-002-018-37669a",
+      "denial_id": "DEN-002",
+      "seq": 18,
+      "type": "completed",
+      "message": "Triage complete: human_review | root cause: auth_required",
+      "payload": {
+        "route": "human_review",
+        "root_cause_category": "auth_required",
+        "value_at_stake": "3400.00",
+        "resubmit_status": null
+      },
+      "citations": [],
+      "ts": "2026-07-15T10:55:36.450392Z"
+    }
+  ]
+}

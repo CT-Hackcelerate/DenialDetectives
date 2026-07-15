@@ -1,0 +1,59 @@
+{
+  "claims": [
+    {
+      "claim_id": "CLM-101",
+      "payer_id": "87726",
+      "payer_name": "UnitedHealthcare",
+      "provider_npi": "1093817465",
+      "provider_name": "Lakeside Orthopedics LLC",
+      "patient_ref": "PAT-77012",
+      "subscriber_id": "SUB771230456",
+      "date_of_service": "2026-06-18",
+      "date_submitted": "2026-06-22",
+      "prior_auth_number": null,
+      "diagnoses": ["M75.101", "M25.511"],
+      "lines": [
+        {
+          "line_number": 1,
+          "cpt_hcpcs": "99214",
+          "modifiers": [],
+          "icd10_pointers": ["M25.511"],
+          "units": 1,
+          "charge": "260.00",
+          "place_of_service": "11"
+        },
+        {
+          "line_number": 2,
+          "cpt_hcpcs": "20610",
+          "modifiers": ["LT"],
+          "icd10_pointers": ["M75.101"],
+          "units": 1,
+          "charge": "310.00",
+          "place_of_service": "11"
+        }
+      ],
+      "total_charge": "570.00"
+    }
+  ],
+  "denials": [
+    {
+      "denial_id": "DEN-101",
+      "claim_id": "CLM-101",
+      "payer_id": "87726",
+      "payer_name": "UnitedHealthcare",
+      "remit_date": "2026-07-08",
+      "adjustments": [
+        {
+          "group_code": "CO",
+          "carc": "97",
+          "rarc": "M80",
+          "amount": "260.00",
+          "line_number": 1
+        }
+      ],
+      "total_denied": "260.00",
+      "remit_note": "Payment is included in the allowance for another service/procedure.",
+      "payer_context": "Chart documents a separate shoulder evaluation before the injection."
+    }
+  ]
+}

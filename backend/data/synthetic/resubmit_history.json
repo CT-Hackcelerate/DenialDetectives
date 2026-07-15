@@ -1,0 +1,215 @@
+[
+  {
+    "resubmission_id": "RSB-001",
+    "claim_id": "HIST-CLM-091",
+    "payer_name": "Aetna",
+    "original_carc": "197",
+    "original_rarc": "M62",
+    "fix_applied": "Keyed the existing prior-auth number onto the claim.",
+    "fields_changed": [
+      "prior_auth_number"
+    ],
+    "resubmitted_date": "2026-01-08",
+    "outcome": "paid",
+    "days_to_outcome": 18,
+    "notes": "Auth had been obtained by phone but never entered."
+  },
+  {
+    "resubmission_id": "RSB-002",
+    "claim_id": "HIST-CLM-102",
+    "payer_name": "UnitedHealthcare",
+    "original_carc": "97",
+    "original_rarc": "M80",
+    "fix_applied": "Appended modifier 25 to the E/M billed with a same-day 20610 injection.",
+    "fields_changed": [
+      "lines[0].modifiers"
+    ],
+    "resubmitted_date": "2026-01-15",
+    "outcome": "paid",
+    "days_to_outcome": 14,
+    "notes": "Separately identifiable E/M documented; per UHC-CP-044."
+  },
+  {
+    "resubmission_id": "RSB-003",
+    "claim_id": "HIST-CLM-117",
+    "payer_name": "Cigna",
+    "original_carc": "16",
+    "original_rarc": "N382",
+    "fix_applied": "Replaced placeholder subscriber ID with the active member ID.",
+    "fields_changed": [
+      "subscriber_id"
+    ],
+    "resubmitted_date": "2026-01-22",
+    "outcome": "paid",
+    "days_to_outcome": 12,
+    "notes": null
+  },
+  {
+    "resubmission_id": "RSB-004",
+    "claim_id": "HIST-CLM-124",
+    "payer_name": "Blue Cross Blue Shield",
+    "original_carc": "4",
+    "original_rarc": "N822",
+    "fix_applied": "Added laterality modifier LT omitted at charge entry.",
+    "fields_changed": [
+      "lines[0].modifiers"
+    ],
+    "resubmitted_date": "2026-02-02",
+    "outcome": "paid",
+    "days_to_outcome": 16,
+    "notes": null
+  },
+  {
+    "resubmission_id": "RSB-005",
+    "claim_id": "HIST-CLM-131",
+    "payer_name": "UnitedHealthcare",
+    "original_carc": "16",
+    "original_rarc": "N54",
+    "fix_applied": "Resubmitted unchanged with medical records attached.",
+    "fields_changed": [],
+    "resubmitted_date": "2026-02-05",
+    "outcome": "denied_again",
+    "days_to_outcome": 21,
+    "notes": "16/N54 was masking an NCCI bundling edit — attachments did not address it."
+  },
+  {
+    "resubmission_id": "RSB-006",
+    "claim_id": "HIST-CLM-131",
+    "payer_name": "UnitedHealthcare",
+    "original_carc": "16",
+    "original_rarc": "N54",
+    "fix_applied": "Appended modifier 25 to the E/M billed same day as an arthroscopy.",
+    "fields_changed": [
+      "lines[0].modifiers"
+    ],
+    "resubmitted_date": "2026-03-01",
+    "outcome": "paid",
+    "days_to_outcome": 15,
+    "notes": "Second attempt on the same claim — real cause was bundling, not missing info."
+  },
+  {
+    "resubmission_id": "RSB-007",
+    "claim_id": "HIST-CLM-138",
+    "payer_name": "Aetna",
+    "original_carc": "50",
+    "original_rarc": "N115",
+    "fix_applied": "First-level appeal with progress notes and LCD criteria mapping.",
+    "fields_changed": [],
+    "resubmitted_date": "2026-02-10",
+    "outcome": "paid",
+    "days_to_outcome": 45,
+    "notes": "Overturned on appeal; per AET-THER-033 continued-care documentation."
+  },
+  {
+    "resubmission_id": "RSB-008",
+    "claim_id": "HIST-CLM-142",
+    "payer_name": "Cigna",
+    "original_carc": "29",
+    "original_rarc": null,
+    "fix_applied": "Resubmitted with a cover letter but no proof of timely filing.",
+    "fields_changed": [],
+    "resubmitted_date": "2026-02-12",
+    "outcome": "denied_again",
+    "days_to_outcome": 20,
+    "notes": "CIG-ADM-081 requires clearinghouse acceptance proof; none existed."
+  },
+  {
+    "resubmission_id": "RSB-009",
+    "claim_id": "HIST-CLM-150",
+    "payer_name": "Blue Cross Blue Shield",
+    "original_carc": "11",
+    "original_rarc": null,
+    "fix_applied": "Repointed the line to the supported diagnosis already on the claim.",
+    "fields_changed": [
+      "lines[0].icd10_pointers"
+    ],
+    "resubmitted_date": "2026-02-18",
+    "outcome": "paid",
+    "days_to_outcome": 13,
+    "notes": null
+  },
+  {
+    "resubmission_id": "RSB-010",
+    "claim_id": "HIST-CLM-155",
+    "payer_name": "Aetna",
+    "original_carc": "197",
+    "original_rarc": "M62",
+    "fix_applied": "Retro-authorization appeal for a 29881 performed without precert.",
+    "fields_changed": [],
+    "resubmitted_date": "2026-02-20",
+    "outcome": "denied_again",
+    "days_to_outcome": 38,
+    "notes": "AET-SURG-014 allows retro requests only within 3 business days of service."
+  },
+  {
+    "resubmission_id": "RSB-011",
+    "claim_id": "HIST-CLM-161",
+    "payer_name": "UnitedHealthcare",
+    "original_carc": "18",
+    "original_rarc": "N522",
+    "fix_applied": "Resubmitted the same claim a third time.",
+    "fields_changed": [],
+    "resubmitted_date": "2026-02-25",
+    "outcome": "denied_again",
+    "days_to_outcome": 9,
+    "notes": "Original had already paid — resubmitting duplicates only creates rework."
+  },
+  {
+    "resubmission_id": "RSB-012",
+    "claim_id": "HIST-CLM-168",
+    "payer_name": "Cigna",
+    "original_carc": "22",
+    "original_rarc": "MA04",
+    "fix_applied": "Billed the primary payer first, then resubmitted with the primary EOB.",
+    "fields_changed": [],
+    "resubmitted_date": "2026-03-04",
+    "outcome": "paid",
+    "days_to_outcome": 60,
+    "notes": "COB resolved via member questionnaire per CIG-ADM-102."
+  },
+  {
+    "resubmission_id": "RSB-013",
+    "claim_id": "HIST-CLM-172",
+    "payer_name": "Blue Cross Blue Shield",
+    "original_carc": "236",
+    "original_rarc": "N20",
+    "fix_applied": "Appended modifier 59 without supporting documentation.",
+    "fields_changed": [
+      "lines[1].modifiers"
+    ],
+    "resubmitted_date": "2026-03-08",
+    "outcome": "denied_again",
+    "days_to_outcome": 17,
+    "notes": "BCBS-RP-107: modifier 59 requires documented distinct anatomic site."
+  },
+  {
+    "resubmission_id": "RSB-014",
+    "claim_id": "HIST-CLM-172",
+    "payer_name": "Blue Cross Blue Shield",
+    "original_carc": "236",
+    "original_rarc": "N20",
+    "fix_applied": "Corrected coding per the NCCI edit and wrote off the bundled component.",
+    "fields_changed": [
+      "lines[1].modifiers"
+    ],
+    "resubmitted_date": "2026-03-22",
+    "outcome": "paid",
+    "days_to_outcome": 14,
+    "notes": "Same-compartment chondroplasty is genuinely bundled with 29881."
+  },
+  {
+    "resubmission_id": "RSB-015",
+    "claim_id": "HIST-CLM-180",
+    "payer_name": "Aetna",
+    "original_carc": "16",
+    "original_rarc": "M76",
+    "fix_applied": "Added the missing diagnosis pointer to the service line.",
+    "fields_changed": [
+      "lines[0].icd10_pointers"
+    ],
+    "resubmitted_date": "2026-03-25",
+    "outcome": "paid",
+    "days_to_outcome": 11,
+    "notes": null
+  }
+]

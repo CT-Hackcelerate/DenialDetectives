@@ -1,0 +1,310 @@
+[
+  {
+    "denial_id": "DEN-001",
+    "claim_id": "CLM-001",
+    "category": "auth_required",
+    "expected_route": "human_review",
+    "synopsis": "Auth exists but value exceeds the $1000 auto-resubmit cap."
+  },
+  {
+    "denial_id": "DEN-002",
+    "claim_id": "CLM-002",
+    "category": "auth_required",
+    "expected_route": "appeal",
+    "synopsis": "No auth obtained — pursue retro-authorization appeal."
+  },
+  {
+    "denial_id": "DEN-003",
+    "claim_id": "CLM-003",
+    "category": "auth_required",
+    "expected_route": "human_review",
+    "synopsis": "Auth exists but value exceeds the $1000 auto-resubmit cap."
+  },
+  {
+    "denial_id": "DEN-004",
+    "claim_id": "CLM-004",
+    "category": "auth_required",
+    "expected_route": "auto_fix_resubmit",
+    "synopsis": "Auth number exists — set prior_auth_number and resubmit."
+  },
+  {
+    "denial_id": "DEN-005",
+    "claim_id": "CLM-005",
+    "category": "auth_required",
+    "expected_route": "appeal",
+    "synopsis": "No auth obtained — pursue retro-authorization appeal."
+  },
+  {
+    "denial_id": "DEN-006",
+    "claim_id": "CLM-006",
+    "category": "missing_info",
+    "expected_route": "auto_fix_resubmit",
+    "synopsis": "Placeholder subscriber ID — correct the member ID and resubmit."
+  },
+  {
+    "denial_id": "DEN-007",
+    "claim_id": "CLM-007",
+    "category": "bundling_ncci",
+    "expected_route": "auto_fix_resubmit",
+    "synopsis": "Red herring: remit says 16/N54 'missing info', but the E/M bundled into same-day 29881 for lack of modifier 25. Documentation supports a separately identifiable E/M — append 25 to line 1 and resubmit."
+  },
+  {
+    "denial_id": "DEN-008",
+    "claim_id": "CLM-008",
+    "category": "missing_info",
+    "expected_route": "auto_fix_resubmit",
+    "synopsis": "Line has no diagnosis pointer though E11.9 is on the claim — repoint and resubmit."
+  },
+  {
+    "denial_id": "DEN-009",
+    "claim_id": "CLM-009",
+    "category": "missing_info",
+    "expected_route": "auto_fix_resubmit",
+    "synopsis": "Placeholder subscriber ID — correct the member ID and resubmit."
+  },
+  {
+    "denial_id": "DEN-010",
+    "claim_id": "CLM-010",
+    "category": "missing_info",
+    "expected_route": "auto_fix_resubmit",
+    "synopsis": "Line has no diagnosis pointer though E11.9 is on the claim — repoint and resubmit."
+  },
+  {
+    "denial_id": "DEN-011",
+    "claim_id": "CLM-011",
+    "category": "coding_mismatch",
+    "expected_route": "auto_fix_resubmit",
+    "synopsis": "Append the omitted therapy discipline modifier GP and resubmit."
+  },
+  {
+    "denial_id": "DEN-012",
+    "claim_id": "CLM-012",
+    "category": "coding_mismatch",
+    "expected_route": "auto_fix_resubmit",
+    "synopsis": "Append the omitted laterality modifier LT and resubmit."
+  },
+  {
+    "denial_id": "DEN-013",
+    "claim_id": "CLM-013",
+    "category": "coding_mismatch",
+    "expected_route": "human_review",
+    "synopsis": "Fix is the omitted laterality modifier LT, but value exceeds the $1000 auto cap."
+  },
+  {
+    "denial_id": "DEN-014",
+    "claim_id": "CLM-014",
+    "category": "coding_mismatch",
+    "expected_route": "auto_fix_resubmit",
+    "synopsis": "Line points at M54.50; supported diagnosis H61.21 is already on the claim."
+  },
+  {
+    "denial_id": "DEN-015",
+    "claim_id": "CLM-015",
+    "category": "coding_mismatch",
+    "expected_route": "auto_fix_resubmit",
+    "synopsis": "Line points at J06.9; supported diagnosis M25.561 is already on the claim."
+  },
+  {
+    "denial_id": "DEN-016",
+    "claim_id": "CLM-016",
+    "category": "coding_mismatch",
+    "expected_route": "auto_fix_resubmit",
+    "synopsis": "Line points at M54.50; supported diagnosis H61.21 is already on the claim."
+  },
+  {
+    "denial_id": "DEN-017",
+    "claim_id": "CLM-017",
+    "category": "medical_necessity",
+    "expected_route": "appeal",
+    "synopsis": "Medical-necessity denial — appeal with clinical documentation supporting the LCD criteria."
+  },
+  {
+    "denial_id": "DEN-018",
+    "claim_id": "CLM-018",
+    "category": "medical_necessity",
+    "expected_route": "appeal",
+    "synopsis": "Medical-necessity denial — appeal with clinical documentation supporting the LCD criteria."
+  },
+  {
+    "denial_id": "DEN-019",
+    "claim_id": "CLM-019",
+    "category": "medical_necessity",
+    "expected_route": "appeal",
+    "synopsis": "Medical-necessity denial — appeal with clinical documentation supporting the LCD criteria."
+  },
+  {
+    "denial_id": "DEN-020",
+    "claim_id": "CLM-020",
+    "category": "medical_necessity",
+    "expected_route": "appeal",
+    "synopsis": "Medical-necessity denial — appeal with clinical documentation supporting the LCD criteria."
+  },
+  {
+    "denial_id": "DEN-021",
+    "claim_id": "CLM-021",
+    "category": "bundling_ncci",
+    "expected_route": "auto_fix_resubmit",
+    "synopsis": "Distinct E/M documented — append modifier 25 to line 1 and resubmit."
+  },
+  {
+    "denial_id": "DEN-022",
+    "claim_id": "CLM-022",
+    "category": "bundling_ncci",
+    "expected_route": "human_review",
+    "synopsis": "29877 hits an NCCI edit against 29881 — coder must confirm separate compartment before any modifier."
+  },
+  {
+    "denial_id": "DEN-023",
+    "claim_id": "CLM-023",
+    "category": "bundling_ncci",
+    "expected_route": "write_off",
+    "synopsis": "Venipuncture correctly bundles into the panel — small-balance write-off."
+  },
+  {
+    "denial_id": "DEN-024",
+    "claim_id": "CLM-024",
+    "category": "bundling_ncci",
+    "expected_route": "auto_fix_resubmit",
+    "synopsis": "Distinct E/M documented — append modifier 25 to line 1 and resubmit."
+  },
+  {
+    "denial_id": "DEN-025",
+    "claim_id": "CLM-025",
+    "category": "duplicate",
+    "expected_route": "write_off",
+    "synopsis": "Original already paid — close the duplicate, no resubmission."
+  },
+  {
+    "denial_id": "DEN-026",
+    "claim_id": "CLM-026",
+    "category": "duplicate",
+    "expected_route": "write_off",
+    "synopsis": "Original already paid — close the duplicate, no resubmission."
+  },
+  {
+    "denial_id": "DEN-027",
+    "claim_id": "CLM-027",
+    "category": "duplicate",
+    "expected_route": "write_off",
+    "synopsis": "Original already paid — close the duplicate, no resubmission."
+  },
+  {
+    "denial_id": "DEN-028",
+    "claim_id": "CLM-028",
+    "category": "timely_filing",
+    "expected_route": "write_off",
+    "synopsis": "Submitted 234 days after DOS against a 180-day limit; no proof of timely filing."
+  },
+  {
+    "denial_id": "DEN-029",
+    "claim_id": "CLM-029",
+    "category": "timely_filing",
+    "expected_route": "write_off",
+    "synopsis": "Submitted 201 days after DOS against a 180-day limit; no proof of timely filing."
+  },
+  {
+    "denial_id": "DEN-030",
+    "claim_id": "CLM-030",
+    "category": "timely_filing",
+    "expected_route": "write_off",
+    "synopsis": "Submitted 215 days after DOS against a 180-day limit; no proof of timely filing."
+  },
+  {
+    "denial_id": "DEN-031",
+    "claim_id": "CLM-031",
+    "category": "non_covered",
+    "expected_route": "write_off",
+    "synopsis": "Coverage termed before DOS — verify term date, then bill the patient; nothing to resubmit."
+  },
+  {
+    "denial_id": "DEN-032",
+    "claim_id": "CLM-032",
+    "category": "non_covered",
+    "expected_route": "write_off",
+    "synopsis": "Coverage termed before DOS — verify term date, then bill the patient; nothing to resubmit."
+  },
+  {
+    "denial_id": "DEN-033",
+    "claim_id": "CLM-033",
+    "category": "coordination_of_benefits",
+    "expected_route": "human_review",
+    "synopsis": "Primary payer unknown — staff must resolve COB and bill the primary first."
+  },
+  {
+    "denial_id": "DEN-034",
+    "claim_id": "CLM-034",
+    "category": "coordination_of_benefits",
+    "expected_route": "human_review",
+    "synopsis": "Primary payer unknown — staff must resolve COB and bill the primary first."
+  },
+  {
+    "denial_id": "DEN-035",
+    "claim_id": "CLM-035",
+    "category": "coordination_of_benefits",
+    "expected_route": "human_review",
+    "synopsis": "Primary payer unknown — staff must resolve COB and bill the primary first."
+  },
+  {
+    "denial_id": "DEN-036",
+    "claim_id": "CLM-036",
+    "category": "non_covered",
+    "expected_route": "write_off",
+    "synopsis": "Plan excludes acupuncture — not correctable or appealable on these facts."
+  },
+  {
+    "denial_id": "DEN-037",
+    "claim_id": "CLM-037",
+    "category": "non_covered",
+    "expected_route": "write_off",
+    "synopsis": "Plan excludes electro-acupuncture — not correctable or appealable on these facts."
+  },
+  {
+    "denial_id": "DEN-038",
+    "claim_id": "CLM-038",
+    "category": "non_covered",
+    "expected_route": "write_off",
+    "synopsis": "Plan excludes screening vitamin D — not correctable or appealable on these facts."
+  },
+  {
+    "denial_id": "DEN-039",
+    "claim_id": "CLM-039",
+    "category": "patient_responsibility",
+    "expected_route": "write_off",
+    "synopsis": "Payer processed correctly — transfer balance to patient deductible; nothing to resubmit."
+  },
+  {
+    "denial_id": "DEN-040",
+    "claim_id": "CLM-040",
+    "category": "patient_responsibility",
+    "expected_route": "write_off",
+    "synopsis": "Payer processed correctly — transfer balance to patient copay; nothing to resubmit."
+  },
+  {
+    "denial_id": "DEN-041",
+    "claim_id": "CLM-041",
+    "category": "patient_responsibility",
+    "expected_route": "write_off",
+    "synopsis": "Payer processed correctly — transfer balance to patient deductible; nothing to resubmit."
+  },
+  {
+    "denial_id": "DEN-042",
+    "claim_id": "CLM-042",
+    "category": "contractual",
+    "expected_route": "write_off",
+    "synopsis": "Standard contractual adjustment above the allowed amount — write off per contract."
+  },
+  {
+    "denial_id": "DEN-043",
+    "claim_id": "CLM-043",
+    "category": "contractual",
+    "expected_route": "write_off",
+    "synopsis": "Standard contractual adjustment above the allowed amount — write off per contract."
+  },
+  {
+    "denial_id": "DEN-044",
+    "claim_id": "CLM-044",
+    "category": "unknown",
+    "expected_route": "human_review",
+    "synopsis": "Generic A1 denial with no remark code — insufficient signal to classify."
+  }
+]

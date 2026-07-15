@@ -1,0 +1,1414 @@
+[
+  {
+    "claim_id": "CLM-001",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-42098",
+    "subscriber_id": "SUB339670711",
+    "date_of_service": "2026-04-24",
+    "date_submitted": "2026-04-27",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M23.221"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "29881",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M23.221"
+        ],
+        "units": 1,
+        "charge": "9800.00",
+        "place_of_service": "24"
+      }
+    ],
+    "total_charge": "9800.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-002",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "provider_npi": "1487265301",
+    "provider_name": "Summit Imaging Center",
+    "patient_ref": "PAT-14165",
+    "subscriber_id": "SUB131994523",
+    "date_of_service": "2026-02-19",
+    "date_submitted": "2026-02-22",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "R51.9"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "70553",
+        "modifiers": [],
+        "icd10_pointers": [
+          "R51.9"
+        ],
+        "units": 1,
+        "charge": "3400.00",
+        "place_of_service": "22"
+      }
+    ],
+    "total_charge": "3400.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-003",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "provider_npi": "1487265301",
+    "provider_name": "Summit Imaging Center",
+    "patient_ref": "PAT-83563",
+    "subscriber_id": "SUB313500298",
+    "date_of_service": "2026-02-13",
+    "date_submitted": "2026-02-18",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M25.561"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "73721",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M25.561"
+        ],
+        "units": 1,
+        "charge": "2600.00",
+        "place_of_service": "22"
+      }
+    ],
+    "total_charge": "2600.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-004",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "provider_npi": "1487265301",
+    "provider_name": "Summit Imaging Center",
+    "patient_ref": "PAT-87236",
+    "subscriber_id": "SUB398704996",
+    "date_of_service": "2026-05-04",
+    "date_submitted": "2026-05-16",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "G47.33"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "95810",
+        "modifiers": [],
+        "icd10_pointers": [
+          "G47.33"
+        ],
+        "units": 1,
+        "charge": "980.00",
+        "place_of_service": "22"
+      }
+    ],
+    "total_charge": "980.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-005",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-54597",
+    "subscriber_id": "SUB398362082",
+    "date_of_service": "2026-02-02",
+    "date_submitted": "2026-02-06",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M23.221"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "29881",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M23.221"
+        ],
+        "units": 1,
+        "charge": "9800.00",
+        "place_of_service": "24"
+      }
+    ],
+    "total_charge": "9800.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-006",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "provider_npi": "1245319878",
+    "provider_name": "Riverbend Family Medicine",
+    "patient_ref": "PAT-22156",
+    "subscriber_id": "SUB-TEMP",
+    "date_of_service": "2026-02-21",
+    "date_submitted": "2026-02-26",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "I10"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99213",
+        "modifiers": [],
+        "icd10_pointers": [
+          "I10"
+        ],
+        "units": 1,
+        "charge": "185.00",
+        "place_of_service": "11"
+      },
+      {
+        "line_number": 2,
+        "cpt_hcpcs": "36415",
+        "modifiers": [],
+        "icd10_pointers": [
+          "I10"
+        ],
+        "units": 1,
+        "charge": "18.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "203.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-007",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-22676",
+    "subscriber_id": "SUB485451171",
+    "date_of_service": "2026-03-12",
+    "date_submitted": "2026-03-16",
+    "prior_auth_number": "A-2026-3187",
+    "diagnoses": [
+      "M23.221",
+      "M25.511"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99213",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M25.511"
+        ],
+        "units": 1,
+        "charge": "225.00",
+        "place_of_service": "11"
+      },
+      {
+        "line_number": 2,
+        "cpt_hcpcs": "29881",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M23.221"
+        ],
+        "units": 1,
+        "charge": "8750.00",
+        "place_of_service": "24"
+      }
+    ],
+    "total_charge": "8975.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-008",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "provider_npi": "1245319878",
+    "provider_name": "Riverbend Family Medicine",
+    "patient_ref": "PAT-70217",
+    "subscriber_id": "SUB675770529",
+    "date_of_service": "2026-03-18",
+    "date_submitted": "2026-03-29",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "E11.9"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99214",
+        "modifiers": [],
+        "icd10_pointers": [],
+        "units": 1,
+        "charge": "260.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "260.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-009",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "provider_npi": "1245319878",
+    "provider_name": "Riverbend Family Medicine",
+    "patient_ref": "PAT-92397",
+    "subscriber_id": "SUB-TEMP",
+    "date_of_service": "2026-02-17",
+    "date_submitted": "2026-02-25",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "I10"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99213",
+        "modifiers": [],
+        "icd10_pointers": [
+          "I10"
+        ],
+        "units": 1,
+        "charge": "185.00",
+        "place_of_service": "11"
+      },
+      {
+        "line_number": 2,
+        "cpt_hcpcs": "36415",
+        "modifiers": [],
+        "icd10_pointers": [
+          "I10"
+        ],
+        "units": 1,
+        "charge": "18.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "203.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-010",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "provider_npi": "1245319878",
+    "provider_name": "Riverbend Family Medicine",
+    "patient_ref": "PAT-16006",
+    "subscriber_id": "SUB810026086",
+    "date_of_service": "2026-03-20",
+    "date_submitted": "2026-03-31",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "E11.9"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99214",
+        "modifiers": [],
+        "icd10_pointers": [],
+        "units": 1,
+        "charge": "260.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "260.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-011",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "provider_npi": "1356720944",
+    "provider_name": "Harbor Physical Therapy Group",
+    "patient_ref": "PAT-40512",
+    "subscriber_id": "SUB208449460",
+    "date_of_service": "2026-03-03",
+    "date_submitted": "2026-03-09",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M54.5"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "97110",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M54.5"
+        ],
+        "units": 8,
+        "charge": "640.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "640.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-012",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-31319",
+    "subscriber_id": "SUB497478786",
+    "date_of_service": "2026-03-22",
+    "date_submitted": "2026-03-28",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M17.12"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "20610",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M17.12"
+        ],
+        "units": 1,
+        "charge": "310.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "310.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-013",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "provider_npi": "1487265301",
+    "provider_name": "Summit Imaging Center",
+    "patient_ref": "PAT-89840",
+    "subscriber_id": "SUB781802744",
+    "date_of_service": "2026-03-19",
+    "date_submitted": "2026-03-24",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M25.562"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "73721",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M25.562"
+        ],
+        "units": 1,
+        "charge": "2600.00",
+        "place_of_service": "22"
+      }
+    ],
+    "total_charge": "2600.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-014",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "provider_npi": "1356720944",
+    "provider_name": "Harbor Physical Therapy Group",
+    "patient_ref": "PAT-59735",
+    "subscriber_id": "SUB389854268",
+    "date_of_service": "2026-02-23",
+    "date_submitted": "2026-03-05",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M54.50",
+      "H61.21"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "69210",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M54.50"
+        ],
+        "units": 1,
+        "charge": "145.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "145.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-015",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-40021",
+    "subscriber_id": "SUB982403818",
+    "date_of_service": "2026-04-24",
+    "date_submitted": "2026-05-04",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "J06.9",
+      "M25.561"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "73721",
+        "modifiers": [],
+        "icd10_pointers": [
+          "J06.9"
+        ],
+        "units": 1,
+        "charge": "890.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "890.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-016",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-37653",
+    "subscriber_id": "SUB709004943",
+    "date_of_service": "2026-02-06",
+    "date_submitted": "2026-02-13",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M54.50",
+      "H61.21"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "69210",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M54.50"
+        ],
+        "units": 1,
+        "charge": "145.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "145.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-017",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "provider_npi": "1356720944",
+    "provider_name": "Harbor Physical Therapy Group",
+    "patient_ref": "PAT-95909",
+    "subscriber_id": "SUB636045484",
+    "date_of_service": "2026-05-04",
+    "date_submitted": "2026-05-11",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M54.5"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "97110",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M54.5"
+        ],
+        "units": 24,
+        "charge": "2040.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "2040.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-018",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "provider_npi": "1245319878",
+    "provider_name": "Riverbend Family Medicine",
+    "patient_ref": "PAT-44718",
+    "subscriber_id": "SUB249926919",
+    "date_of_service": "2026-03-24",
+    "date_submitted": "2026-04-05",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "Z00.00"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "80053",
+        "modifiers": [],
+        "icd10_pointers": [
+          "Z00.00"
+        ],
+        "units": 1,
+        "charge": "95.00",
+        "place_of_service": "11"
+      },
+      {
+        "line_number": 2,
+        "cpt_hcpcs": "85025",
+        "modifiers": [],
+        "icd10_pointers": [
+          "Z00.00"
+        ],
+        "units": 1,
+        "charge": "65.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "160.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-019",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "provider_npi": "1356720944",
+    "provider_name": "Harbor Physical Therapy Group",
+    "patient_ref": "PAT-57447",
+    "subscriber_id": "SUB335493870",
+    "date_of_service": "2026-03-05",
+    "date_submitted": "2026-03-15",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "F33.1"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "90867",
+        "modifiers": [],
+        "icd10_pointers": [
+          "F33.1"
+        ],
+        "units": 4,
+        "charge": "6800.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "6800.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-020",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "provider_npi": "1356720944",
+    "provider_name": "Harbor Physical Therapy Group",
+    "patient_ref": "PAT-21915",
+    "subscriber_id": "SUB911514914",
+    "date_of_service": "2026-02-19",
+    "date_submitted": "2026-03-01",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M54.5"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "97110",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M54.5"
+        ],
+        "units": 24,
+        "charge": "2040.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "2040.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-021",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-92240",
+    "subscriber_id": "SUB271779360",
+    "date_of_service": "2026-02-08",
+    "date_submitted": "2026-02-11",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M17.11"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99213",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M17.11"
+        ],
+        "units": 1,
+        "charge": "185.00",
+        "place_of_service": "11"
+      },
+      {
+        "line_number": 2,
+        "cpt_hcpcs": "20610",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M17.11"
+        ],
+        "units": 1,
+        "charge": "310.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "495.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-022",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-60432",
+    "subscriber_id": "SUB509760584",
+    "date_of_service": "2026-04-30",
+    "date_submitted": "2026-05-08",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M23.205"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "29881",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M23.205"
+        ],
+        "units": 1,
+        "charge": "2850.00",
+        "place_of_service": "24"
+      },
+      {
+        "line_number": 2,
+        "cpt_hcpcs": "29877",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M23.205"
+        ],
+        "units": 1,
+        "charge": "1900.00",
+        "place_of_service": "24"
+      }
+    ],
+    "total_charge": "4750.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-023",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "provider_npi": "1245319878",
+    "provider_name": "Riverbend Family Medicine",
+    "patient_ref": "PAT-82512",
+    "subscriber_id": "SUB112327652",
+    "date_of_service": "2026-04-19",
+    "date_submitted": "2026-04-28",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "E11.9"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "80053",
+        "modifiers": [],
+        "icd10_pointers": [
+          "E11.9"
+        ],
+        "units": 1,
+        "charge": "95.00",
+        "place_of_service": "11"
+      },
+      {
+        "line_number": 2,
+        "cpt_hcpcs": "36415",
+        "modifiers": [],
+        "icd10_pointers": [
+          "E11.9"
+        ],
+        "units": 1,
+        "charge": "18.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "113.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-024",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-94012",
+    "subscriber_id": "SUB465260635",
+    "date_of_service": "2026-04-30",
+    "date_submitted": "2026-05-03",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M17.11"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99213",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M17.11"
+        ],
+        "units": 1,
+        "charge": "185.00",
+        "place_of_service": "11"
+      },
+      {
+        "line_number": 2,
+        "cpt_hcpcs": "20610",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M17.11"
+        ],
+        "units": 1,
+        "charge": "310.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "495.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-025",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "provider_npi": "1245319878",
+    "provider_name": "Riverbend Family Medicine",
+    "patient_ref": "PAT-69470",
+    "subscriber_id": "SUB103484630",
+    "date_of_service": "2026-02-16",
+    "date_submitted": "2026-02-22",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "R00.2"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "93000",
+        "modifiers": [],
+        "icd10_pointers": [
+          "R00.2"
+        ],
+        "units": 1,
+        "charge": "85.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "85.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-026",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "provider_npi": "1245319878",
+    "provider_name": "Riverbend Family Medicine",
+    "patient_ref": "PAT-76542",
+    "subscriber_id": "SUB214257751",
+    "date_of_service": "2026-05-05",
+    "date_submitted": "2026-05-11",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "R00.2"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "93000",
+        "modifiers": [],
+        "icd10_pointers": [
+          "R00.2"
+        ],
+        "units": 1,
+        "charge": "85.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "85.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-027",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "provider_npi": "1245319878",
+    "provider_name": "Riverbend Family Medicine",
+    "patient_ref": "PAT-30032",
+    "subscriber_id": "SUB501486939",
+    "date_of_service": "2026-04-23",
+    "date_submitted": "2026-04-29",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "R00.2"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "93000",
+        "modifiers": [],
+        "icd10_pointers": [
+          "R00.2"
+        ],
+        "units": 1,
+        "charge": "85.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "85.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-028",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-88504",
+    "subscriber_id": "SUB448059918",
+    "date_of_service": "2025-08-14",
+    "date_submitted": "2026-04-05",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "R07.9"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99285",
+        "modifiers": [],
+        "icd10_pointers": [
+          "R07.9"
+        ],
+        "units": 1,
+        "charge": "1850.00",
+        "place_of_service": "23"
+      }
+    ],
+    "total_charge": "1850.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-029",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "provider_npi": "1487265301",
+    "provider_name": "Summit Imaging Center",
+    "patient_ref": "PAT-50306",
+    "subscriber_id": "SUB357109965",
+    "date_of_service": "2025-09-04",
+    "date_submitted": "2026-03-24",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "R07.9"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99285",
+        "modifiers": [],
+        "icd10_pointers": [
+          "R07.9"
+        ],
+        "units": 1,
+        "charge": "1850.00",
+        "place_of_service": "23"
+      }
+    ],
+    "total_charge": "1850.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-030",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-73699",
+    "subscriber_id": "SUB976198296",
+    "date_of_service": "2025-08-07",
+    "date_submitted": "2026-03-10",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "R07.9"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99285",
+        "modifiers": [],
+        "icd10_pointers": [
+          "R07.9"
+        ],
+        "units": 1,
+        "charge": "1850.00",
+        "place_of_service": "23"
+      }
+    ],
+    "total_charge": "1850.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-031",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "provider_npi": "1356720944",
+    "provider_name": "Harbor Physical Therapy Group",
+    "patient_ref": "PAT-82063",
+    "subscriber_id": "SUB277303722",
+    "date_of_service": "2026-02-10",
+    "date_submitted": "2026-02-20",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "K63.5"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "45380",
+        "modifiers": [],
+        "icd10_pointers": [
+          "K63.5"
+        ],
+        "units": 1,
+        "charge": "2400.00",
+        "place_of_service": "22"
+      }
+    ],
+    "total_charge": "2400.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-032",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "provider_npi": "1245319878",
+    "provider_name": "Riverbend Family Medicine",
+    "patient_ref": "PAT-80686",
+    "subscriber_id": "SUB910959828",
+    "date_of_service": "2026-03-07",
+    "date_submitted": "2026-03-17",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "I10"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99214",
+        "modifiers": [],
+        "icd10_pointers": [
+          "I10"
+        ],
+        "units": 1,
+        "charge": "260.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "260.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-033",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "provider_npi": "1356720944",
+    "provider_name": "Harbor Physical Therapy Group",
+    "patient_ref": "PAT-98039",
+    "subscriber_id": "SUB797801251",
+    "date_of_service": "2026-05-06",
+    "date_submitted": "2026-05-11",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "I10",
+      "E78.5"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99214",
+        "modifiers": [],
+        "icd10_pointers": [
+          "I10",
+          "E78.5"
+        ],
+        "units": 1,
+        "charge": "260.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "260.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-034",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "provider_npi": "1356720944",
+    "provider_name": "Harbor Physical Therapy Group",
+    "patient_ref": "PAT-25860",
+    "subscriber_id": "SUB366186631",
+    "date_of_service": "2026-03-21",
+    "date_submitted": "2026-03-30",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M25.561"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "73721",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M25.561"
+        ],
+        "units": 1,
+        "charge": "1450.00",
+        "place_of_service": "22"
+      }
+    ],
+    "total_charge": "1450.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-035",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-87110",
+    "subscriber_id": "SUB694768704",
+    "date_of_service": "2026-03-02",
+    "date_submitted": "2026-03-05",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "I10",
+      "E78.5"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99214",
+        "modifiers": [],
+        "icd10_pointers": [
+          "I10",
+          "E78.5"
+        ],
+        "units": 1,
+        "charge": "260.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "260.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-036",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-19305",
+    "subscriber_id": "SUB860038427",
+    "date_of_service": "2026-03-03",
+    "date_submitted": "2026-03-14",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M54.5"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "97810",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M54.5"
+        ],
+        "units": 1,
+        "charge": "130.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "130.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-037",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-14117",
+    "subscriber_id": "SUB454794895",
+    "date_of_service": "2026-04-23",
+    "date_submitted": "2026-04-25",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "M79.606"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "S8930",
+        "modifiers": [],
+        "icd10_pointers": [
+          "M79.606"
+        ],
+        "units": 1,
+        "charge": "95.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "95.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-038",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "provider_npi": "1487265301",
+    "provider_name": "Summit Imaging Center",
+    "patient_ref": "PAT-97684",
+    "subscriber_id": "SUB621209849",
+    "date_of_service": "2026-02-11",
+    "date_submitted": "2026-02-21",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "Z13.21"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "82306",
+        "modifiers": [],
+        "icd10_pointers": [
+          "Z13.21"
+        ],
+        "units": 1,
+        "charge": "78.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "78.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-039",
+    "payer_id": "00590",
+    "payer_name": "Blue Cross Blue Shield",
+    "provider_npi": "1245319878",
+    "provider_name": "Riverbend Family Medicine",
+    "patient_ref": "PAT-71993",
+    "subscriber_id": "SUB967043303",
+    "date_of_service": "2026-03-01",
+    "date_submitted": "2026-03-11",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "K21.9"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99204",
+        "modifiers": [],
+        "icd10_pointers": [
+          "K21.9"
+        ],
+        "units": 1,
+        "charge": "245.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "245.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-040",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "provider_npi": "1356720944",
+    "provider_name": "Harbor Physical Therapy Group",
+    "patient_ref": "PAT-56438",
+    "subscriber_id": "SUB554814084",
+    "date_of_service": "2026-03-26",
+    "date_submitted": "2026-03-31",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "K21.9"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99204",
+        "modifiers": [],
+        "icd10_pointers": [
+          "K21.9"
+        ],
+        "units": 1,
+        "charge": "245.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "245.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-041",
+    "payer_id": "60054",
+    "payer_name": "Aetna",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-62772",
+    "subscriber_id": "SUB881913386",
+    "date_of_service": "2026-03-26",
+    "date_submitted": "2026-04-04",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "K21.9"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99204",
+        "modifiers": [],
+        "icd10_pointers": [
+          "K21.9"
+        ],
+        "units": 1,
+        "charge": "245.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "245.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-042",
+    "payer_id": "87726",
+    "payer_name": "UnitedHealthcare",
+    "provider_npi": "1245319878",
+    "provider_name": "Riverbend Family Medicine",
+    "patient_ref": "PAT-80292",
+    "subscriber_id": "SUB581695135",
+    "date_of_service": "2026-03-17",
+    "date_submitted": "2026-03-20",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "R07.9"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99285",
+        "modifiers": [],
+        "icd10_pointers": [
+          "R07.9"
+        ],
+        "units": 1,
+        "charge": "3200.00",
+        "place_of_service": "23"
+      }
+    ],
+    "total_charge": "3200.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-043",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "provider_npi": "1356720944",
+    "provider_name": "Harbor Physical Therapy Group",
+    "patient_ref": "PAT-42742",
+    "subscriber_id": "SUB180943908",
+    "date_of_service": "2026-02-19",
+    "date_submitted": "2026-02-27",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "R07.9"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99285",
+        "modifiers": [],
+        "icd10_pointers": [
+          "R07.9"
+        ],
+        "units": 1,
+        "charge": "3200.00",
+        "place_of_service": "23"
+      }
+    ],
+    "total_charge": "3200.00",
+    "revision": 0
+  },
+  {
+    "claim_id": "CLM-044",
+    "payer_id": "62308",
+    "payer_name": "Cigna",
+    "provider_npi": "1093817465",
+    "provider_name": "Lakeside Orthopedics LLC",
+    "patient_ref": "PAT-95477",
+    "subscriber_id": "SUB680451872",
+    "date_of_service": "2026-03-30",
+    "date_submitted": "2026-04-09",
+    "prior_auth_number": null,
+    "diagnoses": [
+      "J02.9"
+    ],
+    "lines": [
+      {
+        "line_number": 1,
+        "cpt_hcpcs": "99213",
+        "modifiers": [],
+        "icd10_pointers": [
+          "J02.9"
+        ],
+        "units": 1,
+        "charge": "185.00",
+        "place_of_service": "11"
+      }
+    ],
+    "total_charge": "185.00",
+    "revision": 0
+  }
+]

@@ -1,0 +1,94 @@
+{
+  "claims": [
+    {
+      "claim_id": "CLM-102",
+      "payer_id": "60054",
+      "payer_name": "Aetna",
+      "provider_npi": "1487265301",
+      "provider_name": "Summit Imaging Center",
+      "patient_ref": "PAT-88044",
+      "subscriber_id": "SUB884411223",
+      "date_of_service": "2026-06-25",
+      "date_submitted": "2026-06-30",
+      "prior_auth_number": null,
+      "diagnoses": ["M54.16"],
+      "lines": [
+        {
+          "line_number": 1,
+          "cpt_hcpcs": "72148",
+          "modifiers": [],
+          "icd10_pointers": ["M54.16"],
+          "units": 1,
+          "charge": "890.00",
+          "place_of_service": "22"
+        }
+      ],
+      "total_charge": "890.00"
+    },
+    {
+      "claim_id": "CLM-103",
+      "payer_id": "62308",
+      "payer_name": "Cigna",
+      "provider_npi": "1356720944",
+      "provider_name": "Harbor Physical Therapy Group",
+      "patient_ref": "PAT-88052",
+      "subscriber_id": "SUB884455667",
+      "date_of_service": "2026-05-11",
+      "date_submitted": "2026-05-15",
+      "prior_auth_number": "A-2026-8802",
+      "diagnoses": ["M25.561"],
+      "lines": [
+        {
+          "line_number": 1,
+          "cpt_hcpcs": "97110",
+          "modifiers": [],
+          "icd10_pointers": ["M25.561"],
+          "units": 6,
+          "charge": "510.00",
+          "place_of_service": "11"
+        }
+      ],
+      "total_charge": "510.00"
+    }
+  ],
+  "denials": [
+    {
+      "denial_id": "DEN-102",
+      "claim_id": "CLM-102",
+      "payer_id": "60054",
+      "payer_name": "Aetna",
+      "remit_date": "2026-07-12",
+      "adjustments": [
+        {
+          "group_code": "CO",
+          "carc": "197",
+          "rarc": "M62",
+          "amount": "890.00",
+          "line_number": 1
+        }
+      ],
+      "total_denied": "890.00",
+      "remit_note": "Precertification/authorization/notification absent.",
+      "payer_context": "Scheduler confirmed auth #A-2026-7731 was approved by phone for the lumbar MRI but never keyed into the claim."
+    },
+    {
+      "denial_id": "DEN-103",
+      "claim_id": "CLM-103",
+      "payer_id": "62308",
+      "payer_name": "Cigna",
+      "remit_date": "2026-06-09",
+      "adjustments": [
+        {
+          "group_code": "CO",
+          "carc": "4",
+          "rarc": "N822",
+          "amount": "510.00",
+          "line_number": 1
+        }
+      ],
+      "total_denied": "510.00",
+      "remit_note": "The procedure code is inconsistent with the modifier used, or a required modifier is missing.",
+      "payer_context": "Therapy discipline modifier GP omitted at charge entry; documentation supports the service."
+    }
+  ]
+}

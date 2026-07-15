@@ -1,0 +1,532 @@
+{
+  "denial_id": "DEN-007",
+  "recorded_at": "2026-07-15T07:41:28+00:00",
+  "events": [
+    {
+      "event_id": "DEN-007-000-b03dd0",
+      "denial_id": "DEN-007",
+      "seq": 0,
+      "type": "started",
+      "message": "Triage started for DEN-007 (UnitedHealthcare, $225.00 at stake, 1 past lesson(s) injected).",
+      "payload": {
+        "claim_id": "CLM-007",
+        "value_at_stake": "225.00",
+        "lessons": [
+          {
+            "payer": "UnitedHealthcare",
+            "carc": "16",
+            "lesson": "UHC 16/N54 on an E/M billed with a same-day procedure is usually a missing modifier 25, not missing documentation — run ncci_edit_check before attaching records.",
+            "source": "seed"
+          }
+        ]
+      },
+      "citations": [],
+      "ts": "2026-07-15T07:39:52.889852Z"
+    },
+    {
+      "event_id": "DEN-007-001-41d257",
+      "denial_id": "DEN-007",
+      "seq": 1,
+      "type": "thought",
+      "message": "I'll follow the lesson and start with the CARC lookup and NCCI edit check simultaneously before drawing any conclusions.",
+      "payload": {},
+      "citations": [],
+      "ts": "2026-07-15T07:39:56.289274Z"
+    },
+    {
+      "event_id": "DEN-007-002-c47279",
+      "denial_id": "DEN-007",
+      "seq": 2,
+      "type": "tool_call",
+      "message": "Calling carc_lookup({\"carc\": \"16\", \"rarc\": \"N54\"})",
+      "payload": {
+        "tool": "carc_lookup",
+        "input": {
+          "carc": "16",
+          "rarc": "N54"
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T07:39:56.289766Z"
+    },
+    {
+      "event_id": "DEN-007-003-c40788",
+      "denial_id": "DEN-007",
+      "seq": 3,
+      "type": "tool_result",
+      "message": "carc_lookup returned.",
+      "payload": {
+        "tool": "carc_lookup",
+        "result": {
+          "found": true,
+          "carc": "16",
+          "description": "Claim/service lacks information or has submission/billing error(s).",
+          "category": "missing_info",
+          "typical_root_cause": "Missing or invalid data element (member ID, dx pointer, NDC, attachment)",
+          "typical_fix": "Read the RARC to find the missing element; supply it and resubmit. Beware: payers sometimes use 16 for edits that are really bundling or modifier problems",
+          "citations": [
+            {
+              "source_type": "carc_definition",
+              "source_id": "CARC-16",
+              "quote": "Claim/service lacks information or has submission/billing error(s).",
+              "chroma_doc_id": null
+            },
+            {
+              "source_type": "rarc_definition",
+              "source_id": "RARC-N54",
+              "quote": "Claim information is inconsistent with the billed services or provider.",
+              "chroma_doc_id": null
+            }
+          ],
+          "rarc": "N54",
+          "rarc_meaning": "Claim information is inconsistent with the billed services or provider."
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T07:39:56.291060Z"
+    },
+    {
+      "event_id": "DEN-007-004-308fad",
+      "denial_id": "DEN-007",
+      "seq": 4,
+      "type": "tool_call",
+      "message": "Calling ncci_edit_check({\"cpt_codes\": [\"99213\", \"29881\"]})",
+      "payload": {
+        "tool": "ncci_edit_check",
+        "input": {
+          "cpt_codes": [
+            "99213",
+            "29881"
+          ]
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T07:39:56.291243Z"
+    },
+    {
+      "event_id": "DEN-007-005-2693a8",
+      "denial_id": "DEN-007",
+      "seq": 5,
+      "type": "tool_result",
+      "message": "ncci_edit_check returned.",
+      "payload": {
+        "tool": "ncci_edit_check",
+        "result": {
+          "cpt_codes": [
+            "99213",
+            "29881"
+          ],
+          "edits": [
+            {
+              "column1_cpt": "29881",
+              "column2_cpt": "99213",
+              "modifier_indicator": "1",
+              "bypass_allowed": true,
+              "rationale": "E/M on the same day as knee arthroscopy bundles unless a separately identifiable service is documented; append modifier 25 to the E/M",
+              "citation": {
+                "source_type": "ncci_edit",
+                "source_id": "NCCI-29881/99213",
+                "quote": "E/M on the same day as knee arthroscopy bundles unless a separately identifiable service is documented; append modifier 25 to the E/M",
+                "chroma_doc_id": null
+              }
+            }
+          ],
+          "edit_count": 1
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T07:39:56.292180Z"
+    },
+    {
+      "event_id": "DEN-007-006-7d8aab",
+      "denial_id": "DEN-007",
+      "seq": 6,
+      "type": "thought",
+      "message": "The NCCI edit confirms it: 99213 bundles into 29881 with modifier_indicator = 1 (bypassable). The lesson is validated — this is a missing modifier 25, not missing documentation. Let me check resubmission history before proposing the fix.",
+      "payload": {},
+      "citations": [],
+      "ts": "2026-07-15T07:40:00.031358Z"
+    },
+    {
+      "event_id": "DEN-007-007-d03f40",
+      "denial_id": "DEN-007",
+      "seq": 7,
+      "type": "tool_call",
+      "message": "Calling resubmission_history({\"payer\": \"UnitedHealthcare\", \"carc\": \"16\", \"fix_type\": \"append modifier 25\"})",
+      "payload": {
+        "tool": "resubmission_history",
+        "input": {
+          "payer": "UnitedHealthcare",
+          "carc": "16",
+          "fix_type": "append modifier 25"
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T07:40:00.031730Z"
+    },
+    {
+      "event_id": "DEN-007-008-ac62f3",
+      "denial_id": "DEN-007",
+      "seq": 8,
+      "type": "tool_result",
+      "message": "resubmission_history returned.",
+      "payload": {
+        "tool": "resubmission_history",
+        "result": {
+          "payer": "UnitedHealthcare",
+          "carc": "16",
+          "fix_type": "append modifier 25",
+          "matches": [
+            {
+              "resubmission_id": "RSB-002",
+              "summary": "UnitedHealthcare denial CARC 97/M80. Fix applied: Appended modifier 25 to the E/M billed with a same-day 20610 injection. Outcome: paid after 14 days. Notes: Separately identifiable E/M documented; per UHC-CP-044.",
+              "outcome": "paid",
+              "carc": "97",
+              "fields_changed": "lines[0].modifiers",
+              "distance": 0.5603
+            },
+            {
+              "resubmission_id": "RSB-006",
+              "summary": "UnitedHealthcare denial CARC 16/N54. Fix applied: Appended modifier 25 to the E/M billed same day as an arthroscopy. Outcome: paid after 15 days. Notes: Second attempt on the same claim — real cause was bundling, not missing info.",
+              "outcome": "paid",
+              "carc": "16",
+              "fields_changed": "lines[0].modifiers",
+              "distance": 0.5651
+            },
+            {
+              "resubmission_id": "RSB-005",
+              "summary": "UnitedHealthcare denial CARC 16/N54. Fix applied: Resubmitted unchanged with medical records attached. Outcome: denied_again after 21 days. Notes: 16/N54 was masking an NCCI bundling edit — attachments did not address it.",
+              "outcome": "denied_again",
+              "carc": "16",
+              "fields_changed": "none",
+              "distance": 0.6236
+            },
+            {
+              "resubmission_id": "RSB-011",
+              "summary": "UnitedHealthcare denial CARC 18/N522. Fix applied: Resubmitted the same claim a third time. Outcome: denied_again after 9 days. Notes: Original had already paid — resubmitting duplicates only creates rework.",
+              "outcome": "denied_again",
+              "carc": "18",
+              "fields_changed": "none",
+              "distance": 0.6755
+            }
+          ],
+          "precedent_count": 4,
+          "paid_count": 2,
+          "has_successful_precedent": true
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T07:40:20.495580Z"
+    },
+    {
+      "event_id": "DEN-007-009-d174c9",
+      "denial_id": "DEN-007",
+      "seq": 9,
+      "type": "thought",
+      "message": "RSB-006 is a near-perfect match — exact same payer, CARC 16/N54, same-day arthroscopy, modifier 25 fix → **paid in 15 days**. RSB-005 also confirms that attaching records *without* the modifier fix fails. I have everything I need.",
+      "payload": {},
+      "citations": [],
+      "ts": "2026-07-15T07:40:33.076284Z"
+    },
+    {
+      "event_id": "DEN-007-010-ec05c6",
+      "denial_id": "DEN-007",
+      "seq": 10,
+      "type": "root_cause",
+      "message": "Root cause: bundling_ncci — The 99213 E/M was denied because it bundles with the same-day 29881 arthroscopy under NCCI edits. UHC masked this as CARC 16 \"missing information,\" but the true cause is the absent modifier 25, which is required to signal a separately identifiable E/M service (left-shoulder evaluation, M25.511) distinct from the knee procedure.",
+      "payload": {
+        "category": "bundling_ncci",
+        "summary": "The 99213 E/M was denied because it bundles with the same-day 29881 arthroscopy under NCCI edits. UHC masked this as CARC 16 \"missing information,\" but the true cause is the absent modifier 25, which is required to signal a separately identifiable E/M service (left-shoulder evaluation, M25.511) distinct from the knee procedure.",
+        "implicated_codes": [
+          "99213",
+          "29881",
+          "modifier 25"
+        ],
+        "is_correctable": true,
+        "confidence": 0.95,
+        "citations": [
+          {
+            "source_type": "ncci_edit",
+            "source_id": "NCCI-29881/99213",
+            "quote": "E/M on the same day as knee arthroscopy bundles unless a separately identifiable service is documented; append modifier 25 to the E/M",
+            "chroma_doc_id": null
+          },
+          {
+            "source_type": "carc_definition",
+            "source_id": "CARC-16",
+            "quote": "Beware: payers sometimes use 16 for edits that are really bundling or modifier problems",
+            "chroma_doc_id": null
+          },
+          {
+            "source_type": "rarc_definition",
+            "source_id": "RARC-N54",
+            "quote": "Claim information is inconsistent with the billed services or provider.",
+            "chroma_doc_id": null
+          }
+        ],
+        "citations_dropped": 0
+      },
+      "citations": [
+        {
+          "source_type": "ncci_edit",
+          "source_id": "NCCI-29881/99213",
+          "quote": "E/M on the same day as knee arthroscopy bundles unless a separately identifiable service is documented; append modifier 25 to the E/M",
+          "chroma_doc_id": null
+        },
+        {
+          "source_type": "carc_definition",
+          "source_id": "CARC-16",
+          "quote": "Beware: payers sometimes use 16 for edits that are really bundling or modifier problems",
+          "chroma_doc_id": null
+        },
+        {
+          "source_type": "rarc_definition",
+          "source_id": "RARC-N54",
+          "quote": "Claim information is inconsistent with the billed services or provider.",
+          "chroma_doc_id": null
+        }
+      ],
+      "ts": "2026-07-15T07:40:33.076746Z"
+    },
+    {
+      "event_id": "DEN-007-011-6b15fe",
+      "denial_id": "DEN-007",
+      "seq": 11,
+      "type": "fix_proposed",
+      "message": "Fix proposed: 1 operation(s) on CLM-007.",
+      "payload": {
+        "fix_id": "FIX-DEN-007-011",
+        "claim_id": "CLM-007",
+        "operations": [
+          {
+            "field_path": "lines[0].modifiers",
+            "op": "add",
+            "old_value": null,
+            "new_value": "25",
+            "reason": "NCCI edit NCCI-29881/99213 (modifier_indicator=1) requires modifier 25 on the E/M to signal it is a separately identifiable service from the same-day arthroscopy. Chart documents a distinct left-shoulder evaluation (M25.511) supporting medical necessity."
+          }
+        ],
+        "citation": {
+          "source_type": "ncci_edit",
+          "source_id": "NCCI-29881/99213",
+          "quote": "E/M on the same day as knee arthroscopy bundles unless a separately identifiable service is documented; append modifier 25 to the E/M",
+          "chroma_doc_id": null
+        },
+        "proposed_by": "llm",
+        "validated": false,
+        "applied": false,
+        "validation_error": null
+      },
+      "citations": [
+        {
+          "source_type": "ncci_edit",
+          "source_id": "NCCI-29881/99213",
+          "quote": "E/M on the same day as knee arthroscopy bundles unless a separately identifiable service is documented; append modifier 25 to the E/M",
+          "chroma_doc_id": null
+        }
+      ],
+      "ts": "2026-07-15T07:40:37.746543Z"
+    },
+    {
+      "event_id": "DEN-007-012-b724b4",
+      "denial_id": "DEN-007",
+      "seq": 12,
+      "type": "fix_validated",
+      "message": "Fix passed whitelist validation.",
+      "payload": {
+        "fix_id": "FIX-DEN-007-011",
+        "claim_id": "CLM-007",
+        "operations": [
+          {
+            "field_path": "lines[0].modifiers",
+            "op": "add",
+            "old_value": null,
+            "new_value": "25",
+            "reason": "NCCI edit NCCI-29881/99213 (modifier_indicator=1) requires modifier 25 on the E/M to signal it is a separately identifiable service from the same-day arthroscopy. Chart documents a distinct left-shoulder evaluation (M25.511) supporting medical necessity."
+          }
+        ],
+        "citation": {
+          "source_type": "ncci_edit",
+          "source_id": "NCCI-29881/99213",
+          "quote": "E/M on the same day as knee arthroscopy bundles unless a separately identifiable service is documented; append modifier 25 to the E/M",
+          "chroma_doc_id": null
+        },
+        "proposed_by": "llm",
+        "validated": true,
+        "applied": false,
+        "validation_error": null
+      },
+      "citations": [],
+      "ts": "2026-07-15T07:40:37.747092Z"
+    },
+    {
+      "event_id": "DEN-007-013-3272ed",
+      "denial_id": "DEN-007",
+      "seq": 13,
+      "type": "thought",
+      "message": "Fix validated. Now commit the decision.",
+      "payload": {},
+      "citations": [],
+      "ts": "2026-07-15T07:41:28.368149Z"
+    },
+    {
+      "event_id": "DEN-007-014-fb7881",
+      "denial_id": "DEN-007",
+      "seq": 14,
+      "type": "decision",
+      "message": "Decision: auto_fix_resubmit (confidence 0.95, $225.00 at stake).",
+      "payload": {
+        "route": "auto_fix_resubmit",
+        "confidence": 0.95,
+        "value_at_stake": "225.00",
+        "rationale": "Root cause is a bypassable NCCI bundling edit (modifier_indicator=1) between 99213 and 29881. Adding modifier 25 to line 1 is the validated, minimal, field-whitelisted correction. Precedent RSB-006 (identical payer/CARC/fix) paid in 15 days. Value at stake is $225.00 (below the $1,000 guardrail). Confidence is 0.95 (above 0.85 guardrail). Fix proposal was validated (FIX-DEN-007-011). All three auto_fix_resubmit guardrail conditions are met.",
+        "citations": [
+          {
+            "source_type": "ncci_edit",
+            "source_id": "NCCI-29881/99213",
+            "quote": "E/M on the same day as knee arthroscopy bundles unless a separately identifiable service is documented; append modifier 25 to the E/M",
+            "chroma_doc_id": null
+          },
+          {
+            "source_type": "carc_definition",
+            "source_id": "CARC-16",
+            "quote": "Beware: payers sometimes use 16 for edits that are really bundling or modifier problems",
+            "chroma_doc_id": null
+          }
+        ],
+        "guardrail_note": "Auto path allowed: confidence 0.95 > 0.85 and value $225.00 < $1000.00.",
+        "requested_route": "auto_fix_resubmit",
+        "rejected_routes": {
+          "appeal": "No clinical dispute or coverage disagreement exists — this is a pure coding correction (missing modifier 25); appeal is unnecessary overhead.",
+          "write_off": "The denial is fully correctable with a modifier addition; writing off $225 would be an unrecovered loss with no justification.",
+          "human_review": "Root cause is unambiguous (NCCI edit, confirmed precedent, validated fix); no human judgment is needed to resolve this case."
+        },
+        "citations_dropped": 0
+      },
+      "citations": [
+        {
+          "source_type": "ncci_edit",
+          "source_id": "NCCI-29881/99213",
+          "quote": "E/M on the same day as knee arthroscopy bundles unless a separately identifiable service is documented; append modifier 25 to the E/M",
+          "chroma_doc_id": null
+        },
+        {
+          "source_type": "carc_definition",
+          "source_id": "CARC-16",
+          "quote": "Beware: payers sometimes use 16 for edits that are really bundling or modifier problems",
+          "chroma_doc_id": null
+        }
+      ],
+      "ts": "2026-07-15T07:41:28.368717Z"
+    },
+    {
+      "event_id": "DEN-007-015-ce8cec",
+      "denial_id": "DEN-007",
+      "seq": 15,
+      "type": "fix_applied",
+      "message": "Fix applied to a copy of CLM-007; revision 0 -> 1.",
+      "payload": {
+        "fix": {
+          "fix_id": "FIX-DEN-007-011",
+          "claim_id": "CLM-007",
+          "operations": [
+            {
+              "field_path": "lines[0].modifiers",
+              "op": "add",
+              "old_value": null,
+              "new_value": "25",
+              "reason": "NCCI edit NCCI-29881/99213 (modifier_indicator=1) requires modifier 25 on the E/M to signal it is a separately identifiable service from the same-day arthroscopy. Chart documents a distinct left-shoulder evaluation (M25.511) supporting medical necessity."
+            }
+          ],
+          "citation": {
+            "source_type": "ncci_edit",
+            "source_id": "NCCI-29881/99213",
+            "quote": "E/M on the same day as knee arthroscopy bundles unless a separately identifiable service is documented; append modifier 25 to the E/M",
+            "chroma_doc_id": null
+          },
+          "proposed_by": "llm",
+          "validated": true,
+          "applied": true,
+          "validation_error": null
+        },
+        "claim": {
+          "claim_id": "CLM-007",
+          "payer_id": "87726",
+          "payer_name": "UnitedHealthcare",
+          "provider_npi": "1093817465",
+          "provider_name": "Lakeside Orthopedics LLC",
+          "patient_ref": "PAT-22676",
+          "subscriber_id": "SUB485451171",
+          "date_of_service": "2026-03-12",
+          "date_submitted": "2026-03-16",
+          "prior_auth_number": "A-2026-3187",
+          "diagnoses": [
+            "M23.221",
+            "M25.511"
+          ],
+          "lines": [
+            {
+              "line_number": 1,
+              "cpt_hcpcs": "99213",
+              "modifiers": [
+                "25"
+              ],
+              "icd10_pointers": [
+                "M25.511"
+              ],
+              "units": 1,
+              "charge": "225.00",
+              "place_of_service": "11"
+            },
+            {
+              "line_number": 2,
+              "cpt_hcpcs": "29881",
+              "modifiers": [],
+              "icd10_pointers": [
+                "M23.221"
+              ],
+              "units": 1,
+              "charge": "8750.00",
+              "place_of_service": "24"
+            }
+          ],
+          "total_charge": "8975.00",
+          "revision": 1
+        }
+      },
+      "citations": [],
+      "ts": "2026-07-15T07:41:28.369129Z"
+    },
+    {
+      "event_id": "DEN-007-016-452d64",
+      "denial_id": "DEN-007",
+      "seq": 16,
+      "type": "resubmitted",
+      "message": "Resubmission accepted (trace TRC-1F3AAAAEB2, ack A2).",
+      "payload": {
+        "status": "accepted",
+        "trace_id": "TRC-1F3AAAAEB2",
+        "payer_ack_code": "A2",
+        "message": "Claim CLM-007 accepted for adjudication.",
+        "errors": []
+      },
+      "citations": [],
+      "ts": "2026-07-15T07:41:28.369480Z"
+    },
+    {
+      "event_id": "DEN-007-017-3bb48c",
+      "denial_id": "DEN-007",
+      "seq": 17,
+      "type": "completed",
+      "message": "Triage complete: auto_fix_resubmit | root cause: bundling_ncci",
+      "payload": {
+        "route": "auto_fix_resubmit",
+        "root_cause_category": "bundling_ncci",
+        "value_at_stake": "225.00",
+        "resubmit_status": "accepted"
+      },
+      "citations": [],
+      "ts": "2026-07-15T07:41:28.374792Z"
+    }
+  ]
+}
