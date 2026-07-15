@@ -1,0 +1,13 @@
+# ClaimGuard local stack (stub).
+# TODO: wire up backend + chromadb services.
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+  # chroma:
+  #   image: chromadb/chroma:latest
+  #   ports:
+  #     - "8001:8000"
