@@ -1,0 +1,62 @@
+for hackathon, we need to build an agent for denial claim reduction in us healthcare
+
+BUILD "ClaimGuard": an agent that automatically identifies, triages, and resubmits denied us healthcare claims. input : an x12 835 deinal(simplieifed json) with carc/rarc codes. the agent diagnoses the true root cause, decides one of four routes - auto fix resubmit/ appeal/writeofff/ human review - and for the first route corrects the claim and resubmit it. 
+rules: llm never edits the claim directly, it proposes a structured fix and python validates and applies it. every decision must cite a payer policy , carc defintion or ncci edit. auto resubmit only if confidence >.85 and value <$1000, otherwise rout to human.
+stack: fastapi+pydantic + sse, anthropic tool calling, chromdb, react+vite + tailwind. 
+synthetic data only.
+propose the repo layout and pydantic models for claim, denial, rootcause triagedecision, fix, resubmissionresult, traceevent. then stop
+
+good, now create all of it. the full repo folder structure with empty stub files and models.py iwth eveyr pydantic model fully implemented. write the files to disk
+
+create the actual files, dont just show me code. 
+generate synthetic data under backend/app/data:
+denials.json - 20 denied claims each paried with its 835 denials. spread the carc codes so all four routes get excercised: 16/n4(missinginfo),97(bundled), 4(missing modifier), 197(no precert), 50(not medically necessary), 29(timely filing), 27(coverage terminated),18(deuplicate). real cpt and icd-10 codes, payers aetna/uhc/cigna/bcbs. ^60k toal deined.
+den-007 is the hero case: carc 16"missing information" with rarc n54, but the real cause is a missing modifier 25 that caused an e/m to bundle into an arthroscopy. the stated reason must be a rad herring - the agent has to dig  past it.
+
+carc_codes.csv - code, description, category, typcial_root,_cause, typcial_fix ~ 30 rows.
+
+ncci_edits.csv - column1_cpt, column2_cpt, mdofier_indicaor, rationle.~40 rows, including the 29881/99213 pair.
+polices/ - 8 payer policy markdonw files, 300-600 workds each. realistic, with policy numbers os they can be cited. one must state that an e/m on the same days as a procedure requires modifier 25. one must state aetna requires precert for 29881.
+resubmit_hisotry.json - 15 past resubmissions with what was fixed, the payer and whether it worked.
+then write validate.py that loads every files and asserts it parses against the pydantic models. run it and fix anything broken.
+
+create the code for below:
+part a - backend/app/knowledge/
+ingest.py : chunk the policy markdown(~200 tokens, 20 overlap). embed with sentences-transformers all-minilm-l6-v2, store in chormadb with metadata{payer,doc_id,policy_number,topic}.persist locally, idempotent.
+retrieve a cigna policy.write a test that proves it.
+part b- backend/app/agent/tools.py
+7 tools as anthropic tool definitions plus python dispatch. Each return a dict, never raises, and includes a citiation where applicable:
+
+1. carc_lookup(carc,rarc)-meaning+typical root cause
+2. ncci_edit_check(cpt_codes) - ptp edits, with modifier_indicator
+3. policy_retrieve(query,payer)- wraps retriever.py
+4. prior_auth_status(payer,cpt, auth_number) "required" is determined by retrieving the payers policy not a hardcoded list
+5. timely_filing_check(payers,dos,submission_date)
+6. resubmission_history(payer,carc,fix_type) - vector search:has this fix worked for this payer before?
+7. submit_claim(claims) - mock clearninghouse, returns accepted/rejected +trace id
+
+write tools_test.py with a test per tool.run in and print a pass/fail table.
+
+
+do sanity check : ncci_edit_check(["99213","29881"])
+policy_retrieve("modifier 25",payer ="cigna")
+
+
+ReAct Loop: process_denial(denial), async generator streaming TraceEvents(throught/tool_call/tool_result/root_cause/decision/final). max 12 turns.
+prompt: the carc says what the payer claimed, not what went wrong - investigate. pick tools based on the denials dont run all. only assert what you can cite. pick one route and say why you rejected the other three.
+in code: drop uncited findings; force HUMAN_REVIEW if confidence<.85 or amount > $1000. Test on DEN-0007 - it must reject the stated reason, find the bundling itself, and route to AUTO_FIX_RESUBMIT
+
+
+apply_fix(): deterministic, pydantic-validated, then submit_claim. 
+memory: store every outcome; after a failed resubmit write a one-line lesson tagged(payer, CARC) and inject it into future prompts. Get /api/lessons, seed 3. Add a batch endpoint over all 20
+
+FastAPI:Get /api/denials, GET /api/process/{id} (SSE), POST /api/approve/{id}, POST /api/override/{id}, POST /api/batch, GET /api/stats ($ recovered + route coutns), GET /api/lessons. 
+Demo cache: save each trace on first run; DEMO_MODE=replay at 100ms pacing so it works with no wifi
+
+one page, 3 columns, dark.
+left: 20 denials with CARC, $, route badge(green/blue/grey/amber) + "process all".
+center: live streaming trace - thoughts typed char-by-char in italics tools calls in cyan mono, and a highlighted moment when the agent rejects the stated CARC  reason. this is the demo.
+right: decision card - root causes, chosen route with the 3 rejected ones struck through, citation in a quote blocked, before -> after diff, confidence bar, approve & resubmit button. 
+Top:animated "$ recovered" counter.
+
+make demo: reset, rebuild vecotrs, pre-cache traces, starts both servers. api failure falls back to cached trace, never an error screen. README with architecture and whats' mocked.
