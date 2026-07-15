@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Env & secrets
+.env
+backend/.env
+
+# ChromaDB
+.chroma/
+backend/.chroma/
+
+# Node / frontend
+node_modules/
+dist/
+
+# Generated synthetic data (keep the dir via .gitkeep)
+backend/data/synthetic/*.json
+
+# Agent memory (outcomes + learned lessons; seeds live in code)
+backend/data/memory/
+
+# Uploaded live-feed batches
+backend/data/feeds/
